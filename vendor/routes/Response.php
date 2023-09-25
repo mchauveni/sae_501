@@ -11,7 +11,7 @@
             $request = Request::getInstance();
             $options = Request::getOptionsHeaders();
 
-            if($request->method !== $options["method"]) {
+            if(!str_contains($options["method"] ?? "GET", $request->method)) {
                 return new ErrorResponse(405);
             }
             
