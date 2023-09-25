@@ -10,6 +10,10 @@
             $response_status = isset(self::$status_codes[$status]) ? $status : http_response_code();
             $request = Request::getInstance();
             $options = Request::getOptionsHeaders();
+
+            if($request->method !== $options["method"]) {
+                return new ErrorResponse(405);
+            }
             
             header("HTTP/1.0 " . $response_status . " " . self::$status_codes[$response_status], true, $response_status);
             header("Access-Control-Allow-Headers:X-API-KEY,Origin,X-Requested-With,Content-Type,Accept,Access-Control-Request-Method,Access-Control-Allow-Origin");
