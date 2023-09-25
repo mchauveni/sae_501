@@ -1,0 +1,11 @@
+<?php
+    define("ROOT", dirname(__DIR__, 1));
+    require_once realpath(ROOT . "/vendor/config/autoload.php");
+
+    error_reporting(0);
+    use Service\Manager\Services;
+    use Service\Console\ConsoleInterface;
+    
+    new Services();
+    new ConsoleInterface();
+?>

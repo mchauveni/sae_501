@@ -1,0 +1,12 @@
+<?php
+    namespace App\Controllers;
+
+    use Service\Routes\Response;
+    use Service\Interface\Controller;
+
+    class %controller% extends Controller {
+        public function index () : Response {
+            return new Response("Hello, %controller% controller !", 200);
+        }
+    }
+?>
