@@ -26,10 +26,10 @@ in /src/controllers/Api.php
 
 in /src/routes/Routes.php
 ```php
-  Controllers\Api::call("index")->match("/api/(\\d+)", [
-      "method" => "GET",
-      "content-type" => "application/json"
-  ]);
+    Controllers\Index::bind("api", "/api/(\\d+)", [
+        "content-type" => "application/json",
+        "method" => "GET"
+    ]);
 ```
 
 the result of consulting /api/18 with method GET will be :
