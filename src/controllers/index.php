@@ -1,23 +1,33 @@
 <?php
+    namespace App\Controllers;
 
-namespace App\Controllers;
+    use Service\Routes\Response;
+    use Service\Interfaces\Controller;
 
-use Service\Database\Entities\Entreprise;
-use Service\Routes\Response;
-use Service\Interfaces\Controller;
+    use Templates\Views;
 
-use Templates;
+    class Index extends Controller {
+        public function index (array $user = []) : Response
+        {
+            if(empty($user)) {
+                $user = (new LoginController())->auth();
+            }
 
-class Index extends Controller
-{
-    public function index(): Response
-    {
-        return Response::template(Templates\Views\listeEntreprise::class, [
-            "nom" => "Jean",
-            "prenom" => "Bonbeurre",
-            "start_date" => "12 octobre",
-            "end_date" => "23 novembre",
-            "entreprises" => (new Entreprise())->findBy(["id_entreprise" => 2])
-        ], 200);
+            if($user["isResp"]) {
+                return $this->responsable($user);
+            } else {
+                return $this->etudiant($user);
+            }
+        }
+
+        private function responsable (array $user) : Response {
+            return Response::template(Views\Responsable\Index::class, [
+                "user" => $user
+            ], 200);
+        }
+
+        private function etudiant (array $user) : Response {
+            return new Response("etudiant", 200);
+        }
     }
-}
+?>
