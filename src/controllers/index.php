@@ -1,16 +1,23 @@
 <?php
-    namespace App\Controllers;
 
-    use Service\Routes\Response;
-    use Service\Interface\Controller;
-    use Service\Manager\Sessions;
+namespace App\Controllers;
 
-    class etudiantController extends Controller {
-        public function index (array $user) : Response {
-            Sessions::set("id_etudiant", $user["id_etudiant"]);
-            Sessions::set("id_formation", $user["id_formation"]);
-            Sessions::set("is_resp", $user["isResp"]);
-            return new Response("Etudiant");
-        }
+use Service\Database\Entities\Entreprise;
+use Service\Routes\Response;
+use Service\Interfaces\Controller;
+
+use Templates;
+
+class Index extends Controller
+{
+    public function index(): Response
+    {
+        return Response::template(Templates\Views\listeEntreprise::class, [
+            "nom" => "Jean",
+            "prenom" => "Bonbeurre",
+            "start_date" => "12 octobre",
+            "end_date" => "23 novembre",
+            "entreprises" => (new Entreprise())->findBy(["id_entreprise" => 2])
+        ], 200);
     }
-?>
+}

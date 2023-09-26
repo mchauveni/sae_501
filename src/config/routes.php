@@ -1,9 +1,9 @@
 <?php
-    use App\Controllers;
 
-    Controllers\LoginController::bind("login", "/login", [
-        "method" => "GET, POST",
-    ]);
+use App\Controllers;
 
-    Controllers\Pdf::bind("pdf", "/");
-?>
+Controllers\LoginController::bind("login", "/login", [
+    "method" => "GET, POST",
+]);
+
+Controllers\Index::bind("index", "/");

@@ -1,7 +1,7 @@
 <?php
     namespace Templates\Errors\_404;
 
-    use Service\Interface\Template;
+    use Service\Interfaces\Template;
     use Components;
 
     class Index extends Template {

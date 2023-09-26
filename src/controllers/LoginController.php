@@ -2,7 +2,7 @@
     namespace App\Controllers;
 
     use Service\Routes\Response;
-    use Service\Interface\Controller;
+    use Service\Interfaces\Controller;
 
     use Service\Database\Entities;
     use Service\Plugins\HashPassword;
@@ -51,4 +51,3 @@
             }
         }
     }
-?>

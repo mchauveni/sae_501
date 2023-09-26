@@ -1,0 +1,64 @@
+body {
+    background-image: url("/public/assets/images/background.svg");
+    background-size: cover;
+}
+
+header {
+    background-color: var(--background);
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+}
+
+header section {
+    width: 100%;
+    padding: 5px;
+    margin: 2px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 3px;
+}
+
+header p {
+    font-size: 1rem;
+}
+
+header section p {
+    text-align: center;
+}
+
+header section h1 {
+    text-align: center;
+}
+
+header .disconnect {
+    place-self: end;
+    width: fit-content;
+    height: fit-content;
+}
+
+header .disconnect a {
+    width: fit-content;
+    height: fit-content;
+}
+
+header .disconnect div {
+    background-image: url("/public/assets/icons/disconnect.svg");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+header .user {
+
+}
+
+header .dates {
+    width: 75%;
+    border: 3px var(--secondary);
+    border-style: solid none;
+}
