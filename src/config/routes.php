@@ -1,9 +1,9 @@
 <?php
-    use App\Controllers;
 
-    Controllers\LoginController::bind("login", "/login", [
-        "method" => "GET, POST",
-    ]);
+use App\Controllers;
 
-    Controllers\Index::bind("index", "/");
-?>
+Controllers\LoginController::bind("login", "/login", [
+    "method" => "GET, POST",
+]);
+
+Controllers\Index::bind("index", "/");
