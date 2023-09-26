@@ -16,25 +16,19 @@
                 $rAuth = $this->auth();
                 Sessions::set("email", $rAuth["email"]);
                 Sessions::set("password", $rAuth["password"]);
-
-                if($rAuth["isResp"]) {
-                    // RETURN CONTROLLER RESP
-                    die(var_dump($rAuth));
-                } else {
-                    // RETURN CONTROLLER ELEVE
-                    die(var_dump($rAuth));
-                }
+                Response::redirect("/");
             }
+
             return Response::template(Templates\Views\Login::class, [
                 "title" => "Se connecter"
             ], 200);
         }
 
-        private function auth () : ?array {
+        public function auth () : ?array {
             $auth = new Auth();
 
-            $email = Sessions::get("email") ?? $this->getRequest()->post["email"] ?? null;
-            $password = Sessions::get("password") ?? (new HashPassword($this->getRequest()->post["password"] ?? null))->getHash();
+            $email = Sessions::get("email") ?? $this->getRequest()->post["email"] ?? "";
+            $password = Sessions::get("password") ?? (new HashPassword($this->getRequest()->post["password"] ?? ""))->getHash();
 
             $authentification = $auth->auth($email, $password);
 

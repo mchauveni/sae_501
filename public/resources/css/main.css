@@ -12,6 +12,18 @@
     --shade-500: #D5F2E3;
 }
 
+@font-face {
+    font-family: "Documan";
+    src: url("../fonts/Documan/DocumanBold.otf") format("opentype"),
+        url("../fonts/Documan/DocumanRegular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Kanit";
+    src: url("../fonts/Kanit/Kanit-Regular.ttf") format("opentype"),
+        url("../fonts/Kanit/Kanit-Bold.ttf") format("opentype");
+}
+
 ::selection {
     background: var(--dark);
     color: var(--light);
@@ -22,9 +34,16 @@ html, body {
     font-size: 16px;
     line-height: 1;
     min-height: 100vh;
-    font-family: 'Comfortaa'; /* TODO CHANGE FONT */
+    font-family: 'Kanit', Kanit, 'Comfortaa', 'Arial', sans-serif;
     color: var(--text-color);
     background-color: var(--background);
+}
+
+h1, h2, 
+h3, h4, 
+h5, .h {
+    font-family: 'Documan', Documan, Impact, sans-serif;
+    font-weight: bold;
 }
 
 * {

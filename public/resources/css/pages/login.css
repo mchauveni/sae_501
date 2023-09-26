@@ -142,4 +142,6 @@ form .input_error {
     transform: translate(0, -100%);
     color: var(--orange);
     display: block;
+    margin-bottom: .8rem;
+    font-size: 1.1rem;
 }

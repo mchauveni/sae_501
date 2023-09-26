@@ -5,6 +5,10 @@
 
     class Auth {
         public static function auth (string $email, string $password) : ?array {
+            if(empty($email) || empty($password)) {
+                return [ "error" => "empty" ];
+            }
+            
             $etudiant = new Etudiant();
             $formation = new Formation();
 
@@ -25,6 +29,7 @@
                 $select["password"] = $select["mp_etudiant"] ?? $select["mp_resp_stage"] ?? null;
                 $select["email"] = $select["email_etudiant"] ?? $select["email_resp_stage"] ?? null;
                 $select["isResp"] = !isset($select["email_etudiant"]);
+
                 if($select["password"] === $password) {
                     return $select;
                 } else {

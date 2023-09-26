@@ -1,0 +1,20 @@
+main {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container_head {
+    border-bottom: 3px solid var(--shade-100);
+    padding-bottom: .8rem;
+    font-size: 1.6rem;
+}
+
+.container_head h1 {
+    font-size: 3rem;
+}
+
+.container_body {
+    margin-top: 1rem;
+}

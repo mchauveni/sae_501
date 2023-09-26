@@ -11,9 +11,6 @@
             }
         }
 
-        /**
-         * 
-         */
         protected function getRequest () : Request {
             return Request::getInstance();
         }
