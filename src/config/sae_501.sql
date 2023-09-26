@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mar. 26 sep. 2023 à 11:30
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Sep 26, 2023 at 02:28 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,42 +18,62 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `sae_501`
+-- Database: `sae_501`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `entreprise`
+-- Table structure for table `entreprise`
 --
 
 CREATE TABLE `entreprise` (
   `id_entreprise` int(11) NOT NULL,
   `nom_entreprise` varchar(100) NOT NULL,
   `dpt_entreprise` varchar(100) NOT NULL,
-  `ville_entreprise` varchar(100) NOT NULL,
-  `liste_entretiens_entreprise` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`liste_entretiens_entreprise`))
+  `ville_entreprise` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `entreprise`
+-- Dumping data for table `entreprise`
 --
 
-INSERT INTO `entreprise` (`id_entreprise`, `nom_entreprise`, `dpt_entreprise`, `ville_entreprise`, `liste_entretiens_entreprise`) VALUES
-(2, 'Solo-Q', 'Malte', 'La Valette', NULL),
-(3, 'Schneider', 'Charente', 'Angoulême', NULL),
-(4, 'Carrefour', 'Auvergne', 'Givors', NULL);
+INSERT INTO `entreprise` (`id_entreprise`, `nom_entreprise`, `dpt_entreprise`, `ville_entreprise`) VALUES
+(2, 'Solo-Q', 'Malte', 'La Valette'),
+(3, 'Schneider', 'Charente', 'Angoulême'),
+(4, 'Carrefour', 'Auvergne', 'Givors');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etudiant`
+-- Table structure for table `entretien`
+--
+
+CREATE TABLE `entretien` (
+  `id_entretien` int(11) NOT NULL,
+  `id_etudiant` int(11) NOT NULL,
+  `id_entreprise` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `entretien`
+--
+
+INSERT INTO `entretien` (`id_entretien`, `id_etudiant`, `id_entreprise`) VALUES
+(1, 1, 2),
+(2, 1, 3),
+(3, 2, 3),
+(4, 4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `etudiant`
 --
 
 CREATE TABLE `etudiant` (
   `id_etudiant` int(11) NOT NULL,
   `id_formation` int(11) NOT NULL,
-  `liste_entretiens_etud` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`liste_entretiens_etud`)),
   `nom_etudiant` varchar(100) NOT NULL,
   `prenom_etudiant` varchar(100) NOT NULL,
   `tel_etudiant` varchar(50) NOT NULL,
@@ -62,21 +82,21 @@ CREATE TABLE `etudiant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `etudiant`
+-- Dumping data for table `etudiant`
 --
 
-INSERT INTO `etudiant` (`id_etudiant`, `id_formation`, `liste_entretiens_etud`, `nom_etudiant`, `prenom_etudiant`, `tel_etudiant`, `email_etudiant`, `mp_etudiant`) VALUES
-(1, 2, NULL, 'Smirnov', 'Ilya', '06 30 12 45 68', 'ismirnov@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
-(2, 3, NULL, 'Smirenove', 'Illya', '06 35 24 85 26', 'ismirenove@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
-(3, 4, NULL, 'smyrnof', 'ily\'a', '06 35 48 69 54', 'ismyrnof@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
-(4, 2, NULL, 'Smiernovo', 'illyha', '06 36 78 95 54', 'ismiernovo@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
-(5, 2, NULL, 'smerinov', 'ilia', '06 24 25 49 57', 'ismerinov@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
-(6, 3, NULL, 'sumerinof', 'ylia', '06 15 48 35 79', 'isumerinof@eut.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db');
+INSERT INTO `etudiant` (`id_etudiant`, `id_formation`, `nom_etudiant`, `prenom_etudiant`, `tel_etudiant`, `email_etudiant`, `mp_etudiant`) VALUES
+(1, 2, 'Smirnov', 'Ilya', '06 30 12 45 68', 'ismirnov@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
+(2, 3, 'Smirenove', 'Illya', '06 35 24 85 26', 'ismirenove@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
+(3, 4, 'smyrnof', 'ily\'a', '06 35 48 69 54', 'ismyrnof@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
+(4, 2, 'Smiernovo', 'illyha', '06 36 78 95 54', 'ismiernovo@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
+(5, 2, 'smerinov', 'ilia', '06 24 25 49 57', 'ismerinov@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
+(6, 3, 'sumerinof', 'ylia', '06 15 48 35 79', 'isumerinof@eut.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `formation`
+-- Table structure for table `formation`
 --
 
 CREATE TABLE `formation` (
@@ -93,7 +113,7 @@ CREATE TABLE `formation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `formation`
+-- Dumping data for table `formation`
 --
 
 INSERT INTO `formation` (`id_formation`, `nom_BUT`, `annee_BUT`, `nom_resp_stage`, `prenom_resp_stage`, `email_resp_stage`, `mp_resp_stage`, `date_deb_insc`, `date_fin_insc`, `nb_max_entretiens`) VALUES
@@ -104,7 +124,7 @@ INSERT INTO `formation` (`id_formation`, `nom_BUT`, `annee_BUT`, `nom_resp_stage
 -- --------------------------------------------------------
 
 --
--- Structure de la table `offre`
+-- Table structure for table `offre`
 --
 
 CREATE TABLE `offre` (
@@ -117,7 +137,7 @@ CREATE TABLE `offre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `offre`
+-- Dumping data for table `offre`
 --
 
 INSERT INTO `offre` (`id_offre`, `id_entreprise`, `id_formation`, `fichier_offre`, `ref_offre`, `commentaires`) VALUES
@@ -127,30 +147,38 @@ INSERT INTO `offre` (`id_offre`, `id_entreprise`, `id_formation`, `fichier_offre
 (7, 2, 2, 'fichierdeconilestoulà.pdf', 'MMI3_tournageIRL', 'faut tourner la vidéo sexe là xxx attention c cho!!!!!');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `entreprise`
+-- Indexes for table `entreprise`
 --
 ALTER TABLE `entreprise`
   ADD PRIMARY KEY (`id_entreprise`);
 
 --
--- Index pour la table `etudiant`
+-- Indexes for table `entretien`
+--
+ALTER TABLE `entretien`
+  ADD PRIMARY KEY (`id_entretien`),
+  ADD KEY `FK_id_etudiant_entretien` (`id_etudiant`),
+  ADD KEY `FK_id_entreprise_entretien` (`id_entreprise`);
+
+--
+-- Indexes for table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD PRIMARY KEY (`id_etudiant`),
   ADD KEY `FK_id_formation_etud` (`id_formation`);
 
 --
--- Index pour la table `formation`
+-- Indexes for table `formation`
 --
 ALTER TABLE `formation`
   ADD PRIMARY KEY (`id_formation`);
 
 --
--- Index pour la table `offre`
+-- Indexes for table `offre`
 --
 ALTER TABLE `offre`
   ADD PRIMARY KEY (`id_offre`),
@@ -158,45 +186,58 @@ ALTER TABLE `offre`
   ADD KEY `FK_id_formation` (`id_formation`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `entreprise`
+-- AUTO_INCREMENT for table `entreprise`
 --
 ALTER TABLE `entreprise`
   MODIFY `id_entreprise` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `etudiant`
+-- AUTO_INCREMENT for table `entretien`
+--
+ALTER TABLE `entretien`
+  MODIFY `id_entretien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `etudiant`
 --
 ALTER TABLE `etudiant`
   MODIFY `id_etudiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `formation`
+-- AUTO_INCREMENT for table `formation`
 --
 ALTER TABLE `formation`
   MODIFY `id_formation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `offre`
+-- AUTO_INCREMENT for table `offre`
 --
 ALTER TABLE `offre`
   MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `etudiant`
+-- Constraints for table `entretien`
+--
+ALTER TABLE `entretien`
+  ADD CONSTRAINT `FK_id_entreprise_entretien` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_id_etudiant_entretien` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiant` (`id_etudiant`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD CONSTRAINT `FK_id_formation_etud` FOREIGN KEY (`id_formation`) REFERENCES `formation` (`id_formation`);
 
 --
--- Contraintes pour la table `offre`
+-- Constraints for table `offre`
 --
 ALTER TABLE `offre`
   ADD CONSTRAINT `FK_id_entreprise` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`) ON DELETE CASCADE ON UPDATE CASCADE,
