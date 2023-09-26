@@ -12,7 +12,7 @@ in /src/controllers/Api.php
   namespace App\Controllers;
 
   use Service\Routes\Response;
-  use Service\Interface\Controller;
+  use Service\Interfaces\Controller;
 
   class Api extends Controller {
       public function index (int $number) : Response {

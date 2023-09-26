@@ -2,9 +2,10 @@
     namespace App\Controllers;
 
     use Service\Routes\Response;
-    use Service\Interface\Controller;
+    use Service\Interfaces\Controller;
 
-    use Service\Database\Entities;
+    use Service\Database\Entities\Auth;
+    use Service\Manager\Sessions;
     use Service\Plugins\HashPassword;
 
     use Templates;
@@ -12,42 +13,39 @@
     class LoginController extends Controller {
         public function login () : Response {
             if($this->getRequest()->method === "POST" && !empty($this->getRequest()->post)) {
-                // return $this->postLogin();
-            }
+                $rAuth = $this->auth();
+                Sessions::set("email", $rAuth["email"]);
+                Sessions::set("password", $rAuth["password"]);
 
+                if($rAuth["isResp"]) {
+                    // RETURN CONTROLLER RESP
+                    die(var_dump($rAuth));
+                } else {
+                    // RETURN CONTROLLER ELEVE
+                    die(var_dump($rAuth));
+                }
+            }
             return Response::template(Templates\Views\Login::class, [
                 "title" => "Se connecter"
             ], 200);
         }
 
-        private function postLogin () : Response {
-            $etudiants = new Entities\Etudiant();
-            $formation = new Entities\Formation();
+        private function auth () : ?array {
+            $auth = new Auth();
 
-            $user = $etudiants->findBy([
-                "email_etudiant" => $this->getRequest()->post["email"]
-            ])[0] ?? $formation->findBy([
-                "email_resp_stage" => $this->getRequest()->post["email"]
-            ])[0];
+            $email = Sessions::get("email") ?? $this->getRequest()->post["email"] ?? null;
+            $password = Sessions::get("password") ?? (new HashPassword($this->getRequest()->post["password"] ?? null))->getHash();
 
-            $password = $user["mp_etudiant"] ?? $user["mp_resp_stage"] ?? null;
+            $authentification = $auth->auth($email, $password);
 
-            $validPassword = isset($password) && $password === (new HashPassword(
-                $this->getRequest()->post["password"]
-            ))->getHash();
-
-            $user["isResp"] = isset($user["id_resp_stage"]);
-
-            if($user !== null && $validPassword) {
-                // return $user["isResp"] ? 
-                //     (new etudiantController())->index($user) :
-                //     (new stageRespController())->index($user);
-            } else {
+            if(isset($authentification["error"])) {
                 return Response::template(Templates\Views\Login::class, [
                     "title" => "Se connecter",
-                    "userError" => $user == null,
-                    "passwordError" => !$validPassword,
+                    "error" => $authentification["error"],
+                    "email" => $authentification["error"] === "password" ? $email : null
                 ], 200);
+            } else {
+                return $authentification;
             }
         }
     }

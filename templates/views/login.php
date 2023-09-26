@@ -1,7 +1,7 @@
 <?php
     namespace Templates\Views;
 
-    use Service\Interface\Template;
+    use Service\Interfaces\Template;
     use Components;
 
     class Login extends Template {
@@ -21,10 +21,10 @@
                             <h1>Se connecter</h1>
                             <div class="form_container">
                                 <div class="input_container">
-                                    <input required type="text" id="loginEmail" name="email"/>
+                                    <input required type="text" id="loginEmail" name="email" value="<?php echo $this->email ?>"/>
                                     <label for="loginEmail">Adresse électronique</label>
                                 </div>
-                                <?php if($this->userError) echo '<span class="input_error">Utilisateur introuvable</span>'; ?>
+                                <?php if($this->error == "email") echo '<span class="input_error">Utilisateur introuvable</span>'; ?>
                                 <div class="input_container">
                                     <input class="password_havetoggle" required type="password" id="loginPassword" name="password"/>
                                     <label for="loginPassword">Mot de passe</label>
@@ -33,7 +33,7 @@
                                         <svg class="visible" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M12.001 5C7.524 5 3.733 7.943 2.46 12c1.274 4.057 5.065 7 9.542 7 4.478 0 8.268-2.943 9.542-7-1.274-4.057-5.064-7-9.542-7z"/></g></svg>
                                     </button>
                                 </div>
-                                <?php if(!$this->userError && $this->passwordError) echo '<span class="input_error">Mot de passe éroné</span>'; ?>
+                                <?php if($this->error == "password") echo '<span class="input_error">Mot de passe éroné</span>'; ?>
                                 <input type="submit" class="form_submit btn" value="Connexion">
                             </div>
                         </form>

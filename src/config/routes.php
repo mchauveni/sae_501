@@ -5,5 +5,5 @@
         "method" => "GET, POST",
     ]);
 
-    Controllers\Pdf::bind("pdf", "/");
+    // Controllers\Pdf::bind("pdf", "/");
 ?>

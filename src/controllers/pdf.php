@@ -1,7 +1,7 @@
 <?php
     namespace App\Controllers;
 
-    use Service\Interface\Controller;
+    use Service\Interfaces\Controller;
     use Service\Routes\Response;
     use Templates;
 
