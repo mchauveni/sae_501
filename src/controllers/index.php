@@ -1,19 +1,16 @@
 <?php
     namespace App\Controllers;
 
-    use Service\Interface\Controller;
     use Service\Routes\Response;
-    use Templates;
+    use Service\Interface\Controller;
+    use Service\Manager\Sessions;
 
-    class Index extends Controller {
-        public function index () : Response {
-            return Response::template(Templates\Views\Index::class, [], 200);
-        }
-
-        public function api () : Response {
-            return new Response([
-                "hello" => "world"
-            ], 200);
+    class etudiantController extends Controller {
+        public function index (array $user) : Response {
+            Sessions::set("id_etudiant", $user["id_etudiant"]);
+            Sessions::set("id_formation", $user["id_formation"]);
+            Sessions::set("is_resp", $user["isResp"]);
+            return new Response("Etudiant");
         }
     }
 ?>

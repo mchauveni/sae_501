@@ -1,0 +1,145 @@
+body {
+    background-image: url("/public/assets/images/background.svg");
+    background-size: cover;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+form {
+   padding: 1rem;
+}
+
+form h1 {
+    text-align: center;
+    color: var(--secondary);
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+form .input_container {
+    position: relative;
+    margin-bottom: 1.6rem;
+}
+
+form .input_container input {
+    cursor: pointer;
+    background-color: var(--shade-500);
+    border-radius: 3px;
+    font-size: 1.3rem;
+    padding: 1rem .5rem .5rem .5rem;
+    text-indent: .4rem;
+    outline: 2.4px solid transparent;
+    transition: all ease-out .18s;
+    width: 100%;
+}
+
+form .input_container label {
+    cursor: pointer;
+    font-size: 1.3rem;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    z-index: 4;
+    transform: translate(0, -50%);
+    user-select: none;
+    opacity: .4;
+    transition: all ease-out .18s;
+}
+
+form .input_container input:focus + label,
+form .input_container input:valid + label {
+    font-size: 1rem;
+    left: 1rem;
+    top: 0;
+    z-index: 4;
+    transform: translate(0, -50%);
+    background-color: var(--shade-100);
+    color: var(--shade-500);
+    border-radius: 2px;
+    padding: .3rem .6rem;
+    opacity: 1;
+}
+
+form .input_container:hover input {
+    outline: 2.4px solid var(--shade-100);
+    outline-offset: 4px;
+}
+
+form .input_container input:focus,
+form .input_container input:valid {
+    outline: 2.4px solid var(--shade-100);
+    outline-offset: 0px;
+}
+
+form .input_container input.password_havetoggle {
+    padding-right: 3.4rem;
+}
+
+form .password_visibility {
+    position: absolute;
+    right: .75rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 2rem;
+    height: 2rem;
+    padding: .23rem;
+    background-color: var(--shade-500);
+    cursor: pointer;
+}
+
+form .password_visibility svg {
+    width: 100%;
+    height: 100%;
+    color: var(--secondary);
+}
+
+form .password_visibility .visible {
+    transform: translate(0, 1px);
+}
+
+form .password_visibility .hidden {
+    transform: translate(0, 3px);
+    display: none;
+}
+
+form .password_visibility.visible .hidden {
+    display: block;
+}
+form .password_visibility.visible .visible {
+    display: none;
+}
+
+form .form_submit {
+    border-radius: 3px;
+    background-color: var(--secondary);
+    color: var(--shade-500);
+    width: 100%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: .6rem 0;
+    transition: .18s linear .32s;
+    outline: 2.4px solid transparent;
+}
+
+form .form_submit:hover {
+    transition: .18s linear;
+    background-color: var(--text-color);
+    outline-color: var(--text-color);
+    outline-offset: 4px;
+}
+
+form .form_submit:focus {
+    outline-offset: 0px;
+}
+
+form .input_error {
+    transform: translate(0, -100%);
+    color: var(--orange);
+    display: block;
+}

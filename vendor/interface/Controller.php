@@ -14,7 +14,7 @@
         /**
          * 
          */
-        protected function request () : Request {
+        protected function getRequest () : Request {
             return Request::getInstance();
         }
     }
