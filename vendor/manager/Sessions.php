@@ -22,7 +22,7 @@
 
         public static function get (string $name) : mixed {
             if(session_status() !== PHP_SESSION_NONE && session_status() !== PHP_SESSION_DISABLED) {
-               return $_SESSION[$name];
+               return $_SESSION[$name] ?? null;
             }
         }
     }

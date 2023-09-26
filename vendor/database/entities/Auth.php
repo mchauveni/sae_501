@@ -1,24 +1,36 @@
 <?php
     namespace Service\Database\Entities;
 
+    use Service\Database\PDO;
+
     class Auth {
-        public static function auth () {
-            $sql = "SELECT
-                CASE
-                    WHEN et.email_etudiant = :email AND et.mp_etudiant = :password THEN 'etudiant'  -- Vérifiez les étudiants
-                    WHEN resp.email_resp = :email AND resp.mp_resp = :password THEN 'responsable' -- Vérifiez les responsables
-                END AS user_type,
-                CASE
-                    WHEN et.email_etudiant = :email AND et.mp_etudiant = :password THEN et.*  -- Sélectionnez toutes les colonnes de l'étudiant
-                    WHEN resp.email_resp = :email AND resp.mp_resp = :password THEN resp.* -- Sélectionnez toutes les colonnes du responsable
-                END AS user_data
-            FROM
-                etudiant et
-            LEFT JOIN
-                responsable resp
-            ON
-                et.email_etudiant = :email OR resp.email_resp = :email
-            LIMIT 1;";
+        public static function auth (string $email, string $password) : ?array {
+            $etudiant = new Etudiant();
+            $formation = new Formation();
+
+            $select = $etudiant->findBy([
+                "email_etudiant" => $email
+            ]);
+
+            if(!$select) {
+                $select = $formation->findBy([
+                    "email_resp_stage" => $email
+                ]); 
+            }
+
+            if(!$select) {
+                return [ "error" => "email" ];
+            } else {
+                $select = $select[0];
+                $select["password"] = $select["mp_etudiant"] ?? $select["mp_resp_stage"] ?? null;
+                $select["email"] = $select["email_etudiant"] ?? $select["email_resp_stage"] ?? null;
+                $select["isResp"] = !isset($select["email_etudiant"]);
+                if($select["password"] === $password) {
+                    return $select;
+                } else {
+                    return [ "error" => "password" ];
+                }
+            }
         }
     }
 ?>
