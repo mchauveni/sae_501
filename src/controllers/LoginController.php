@@ -12,16 +12,15 @@
 
     class LoginController extends Controller {
         public function login () : Response {
+            $rAuth = $this->auth();
+
             if($this->getRequest()->method === "POST" && !empty($this->getRequest()->post)) {
-                $rAuth = $this->auth();
                 Sessions::set("email", $rAuth["email"]);
                 Sessions::set("password", $rAuth["password"]);
                 Response::redirect("/");
             }
 
-            return Response::template(Templates\Views\Login::class, [
-                "title" => "Se connecter"
-            ], 200);
+            return Response::redirect("/");
         }
 
         public function auth () : ?array {
