@@ -5,6 +5,10 @@ main {
     min-height: 100vh;
 }
 
+.hidden {
+    display: none;
+}
+
 .container_head {
     border-bottom: 3px solid var(--shade-100);
     padding-bottom: .8rem;

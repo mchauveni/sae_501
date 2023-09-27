@@ -41,7 +41,7 @@ class listeEntreprise extends Template
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
+                        <a href="/offres" class="btn">Voir les offres > </a>
                     </div>
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>

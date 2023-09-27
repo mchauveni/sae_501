@@ -23,12 +23,9 @@ header h1 {
     margin: 3px;
 }
 
-header p {
-    font-size: 1rem;
-}
-
 header section p {
     text-align: center;
+    font-size: 1rem;
 }
 
 header section h1 {
@@ -53,13 +50,9 @@ header .disconnect div {
     height: 40px;
 }
 
-header .user {
-
-}
-
 header .dates {
     width: 75%;
-    border: 3px var(--secondary);
+    border: 3px var(--main);
     border-style: solid none;
 }
 
