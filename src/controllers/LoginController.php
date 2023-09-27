@@ -16,7 +16,6 @@
             if($this->getRequest()->method === "POST" && !empty($this->getRequest()->post)) {
                 Sessions::set("email", $rAuth["email"]);
                 Sessions::set("password", $rAuth["password"]);
-                Response::redirect("/");
             }
 
             return Response::redirect("/");
