@@ -9,3 +9,7 @@ Controllers\LoginController::bind("login", "/login", [
 Controllers\Index::bind("index", "/");
 
 Controllers\OffreController::bind("offres", "/offres");
+
+Controllers\LoginController::bind("logout", "/logout", [
+    "method" => "GET"
+]);

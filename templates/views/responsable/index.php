@@ -24,8 +24,7 @@
                             </div>
                             <div class="container_body">
                                 <div class="general_container">
-                                    <!-- IMPR PDF -->
-                                    <!-- DECONEXION -->
+                                    <a class="btn cancel" href="/logout">Se déconnecter</a>
                                 </div>
                                 <div class="params_container">
                                     <span class="params_title"><b>Paramètres d'inscription</b></span>
