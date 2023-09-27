@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Service\Database\Entities\Entreprise;
+use Service\Database\Entities\Entretien;
 use Service\Database\Entities\Formation;
 use Service\Database\Entities\Offre;
 use Service\Routes\Response;
@@ -25,11 +26,19 @@ class OffreController extends Controller
             "id_entreprise" => $id_entreprise,
             "id_formation" => $user["id_formation"]
         ]);
+
+        $isSubscribed = !empty((new Entretien())->findBy([
+            "id_entreprise" => $id_entreprise,
+            "id_etudiant" => $user["id_etudiant"]
+        ]));
+
+        die(var_dump($isSubscribed));
         
         return Response::template(Views\Etudiants\offres::class, [
             "offres" => $offres,
             "entreprise" => $entreprise,
-            "isTooLate" => $isTooLate
+            "isTooLate" => $isTooLate,
+            "isSubscribed" => $isSubscribed
         ]);
     }
 }
