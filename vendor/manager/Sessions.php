@@ -8,6 +8,10 @@
         }
 
         public static function destroy () {
+            if(empty($_SESSION)) {
+                session_start();
+            }
+            $_SESSION = [];
             session_unset();
             session_destroy();
         }
