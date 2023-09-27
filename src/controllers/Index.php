@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Service\Database\Entities;
+use Service\Database\Entities\Entreprise;
 use Service\Database\Entities\Entretien;
 use Service\Routes\Response;
 use Service\Interfaces\Controller;
@@ -61,7 +62,8 @@ class Index extends Controller
                 "entreprises" => $entreprises
             ]);
         } else {
-            $entreprises = [];
+            $entreprise = new Entreprise();
+            $entreprises = $entreprise->selectFromEtudiantFormation($user["id_formation"]);
 
             return Response::template(Views\Etudiants\listeEntreprise::class, [
                 "user" => $user,

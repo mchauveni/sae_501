@@ -37,7 +37,10 @@ class tooEarly extends Template
                     </section>
                 </header>
 
-
+                <section class="content">
+                    <img src="/public/assets/icons/flaggerbasted.svg" alt="Oops!">
+                    <h2>Les inscriptions ne sont pas encores ouvertes!</h2>
+                </section>
             </main>
         </body>
 

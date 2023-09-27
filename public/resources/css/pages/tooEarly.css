@@ -51,4 +51,24 @@ header .dates {
     width: 75%;
     border: 3px var(--main);
     border-style: solid none;
+    color: var(--orange);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content img {
+    margin: 1rem;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+}
+
+.content h2 {
+    font-size: 2rem;
+    text-align: center;
+    max-width: 300px;
 }

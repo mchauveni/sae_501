@@ -8,7 +8,7 @@
         { 
             ?>
                 <a href="" class="btn <?php echo $this->color ?? "main" ?> <?php echo $this->iconBeforeText ? " iconBeforeText" : "" ?>">
-                    <span><?php echo $this->content ?? Undefined ?></span>
+                    <span><?php echo $this->content ?></span>
                     <div class="icon">
                         <?php 
                             $path = ROOT . "/public/resources/assets/icons/" . $this->icon . ".svg";
