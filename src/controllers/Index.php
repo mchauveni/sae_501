@@ -44,6 +44,8 @@ class Index extends Controller
         $date_fninsc = date_create($fin_insc);
         $now = date_create('now');
 
+        // ! TOO SOON
+        
         if($now->getTimestamp() < $date_dbinsc->getTimestamp()) {
             return Response::template(Views\Etudiants\tooEarly::class, [
                 "user" => $user,
@@ -51,19 +53,19 @@ class Index extends Controller
                 "date_debut" => $debut_insc,
                 "date_fin" => $fin_insc,
             ]);
-        } else if ($now->getTimestamp() > $date_fninsc->getTimestamp()) {
-            $entretiens = new Entretien();
-            $entreprises = $entretiens->getAllEntrepriseFromEtudiant($user["id_etudiant"]);
-            return Response::template(Views\Etudiants\tooLate::class, [
-                "user" => $user,
-                "title" => "Inscription fermés ({$fin_insc})",
-                "date_debut" => $debut_insc,
-                "date_fin" => $fin_insc,
-                "entreprises" => $entreprises
-            ]);
-        } else {
+        }
+
+        // ! GOOD TO SUB
+        
+        else {
             $entreprise = new Entreprise();
-            $entreprises = $entreprise->selectFromEtudiantFormation($user["id_formation"]);
+            $entretiens = new Entretien();
+
+            if($now->getTimestamp() > $date_fninsc->getTimestamp()) {
+                $entreprises = $entretiens->getAllEntrepriseFromEtudiant($user["id_etudiant"]);
+            } else {
+                $entreprises = $entreprise->selectFromEtudiantFormation($user["id_formation"]);
+            }
 
             return Response::template(Views\Etudiants\listeEntreprise::class, [
                 "user" => $user,

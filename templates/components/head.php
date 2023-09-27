@@ -7,9 +7,9 @@
         public function render ()
         {
             ?>
-                <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+                <meta charset="UTF-8">
                 <link rel="preload" href="/public/assets/favicon.svg" as="image" type="image/svg+xml">
                 <link rel="icon" href="/public/assets/favicon.svg" type="image/svg+xml">
                 <link rel="icon" href="/public/assets/favicon.png" type="image/png">

@@ -20,7 +20,7 @@
             header("Access-Control-Allow-Methods:" . ($options["method"] ?? "GET"));
             header("Access-Control-Request-Method:" . ($options["content"] ?? "GET"));
             header("Access-Control-Allow-Origin:". ($options["origin"] ?? $request->origin ?? $request->server));
-            header("Content-Type:" . ($options["content-type"] ?? "text/html; charset=utf-8"));
+            header("Content-Type:" . ($options["content-type"] ?? "text/html; charset=UTF-8"));
             header("Accept:" . ($options["accept"] ?? "text/html"));
 
             if(isset($options["cache"])) {
