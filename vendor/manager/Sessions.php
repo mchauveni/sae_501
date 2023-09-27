@@ -8,9 +8,8 @@
         }
 
         public static function destroy () {
+            session_unset();
             session_destroy();
-            session_abort();
-            session_start();
         }
 
         public static function set (string $name, mixed $value) : bool {
