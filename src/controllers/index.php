@@ -29,16 +29,19 @@ class Index extends Controller
             $dateInscEnd = $this->getRequest()->post["dateEnd"];
             $dateInscStart = $this->getRequest()->post["dateStart"];
             $nbMaxEntretiens = $this->getRequest()->post["nbMaxEntretiens"];
-            if(isset($id)) {
+            if(isset($id) 
+                && isset($dateInscEnd)
+                && isset($dateInscStart)
+                && isset($nbMaxEntretiens)) {
                 $formation = new Entities\Formation();
                 $formation->update($id, [
                     "date_deb_insc" => $dateInscStart,
                     "date_fin_insc" => $dateInscEnd,
                     "nb_max_entretiens" => $nbMaxEntretiens
                 ]);
+                return Response::redirect("/");
             }
         }
-        
         return Response::template(Views\Responsable\Index::class, [
             "user" => $user,
             "title" => "Responsable Stage {$user['nom_BUT']} {$user['annee_BUT']}"
