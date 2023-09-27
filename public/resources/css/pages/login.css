@@ -28,7 +28,6 @@ form .input_container {
 }
 
 form .input_container input {
-    cursor: pointer;
     background-color: var(--shade-500);
     border-radius: 3px;
     font-size: 1.3rem;

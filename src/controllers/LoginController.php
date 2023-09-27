@@ -25,7 +25,10 @@
             Sessions::set("email", null);
             Sessions::set("password", null);
             Sessions::destroy();
-            return Response::redirect("/login");
+
+            return Response::template(Templates\Views\Login::class, [
+                "title" => "Se connecter"
+            ], 302);
         }
 
         public function auth () : ?array {
