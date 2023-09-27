@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Service\Database\Entities;
+use Service\Database\Entities\Entretien;
 use Service\Routes\Response;
 use Service\Interfaces\Controller;
 
@@ -50,14 +51,43 @@ class Index extends Controller
     
     private function etudiant(array $user): Response
     {
-        return Response::template(Views\Etudiants\listeEntreprise::class, [
-            "user" => $user,
-            "title" => "Etudiant {$user['prenom_etudiant']} {$user['nom_etudiant']}",
-            "date_debut" => '09-12-2023',
-            "date_fin" => '18-12-2023',
-            "nom_entreprise" => 'Schneider',
-            "dpt_entreprise" => 'Charente',
-            "ville_entreprise" => 'Angoulême',
-        ], 200);
+        $formation = new Entities\Formation();
+        $formation_etud = $formation->find($user["id_formation"]);
+
+        $debut_insc = $formation_etud["date_deb_insc"];
+        $fin_insc = $formation_etud["date_fin_insc"];
+
+        $date_dbinsc = date_create($debut_insc);
+        $date_fninsc = date_create($fin_insc);
+        $now = date_create('now');
+
+        if($now->getTimestamp() < $date_dbinsc->getTimestamp()) {
+            return Response::template(Views\Etudiants\tooEarly::class, [
+                "user" => $user,
+                "title" => "Inscription non ouvertes ({$debut_insc})",
+                "date_debut" => $debut_insc,
+                "date_fin" => $fin_insc,
+            ]);
+        } else if ($now->getTimestamp() > $date_fninsc->getTimestamp()) {
+            $entretiens = new Entretien();
+            $entreprises = $entretiens->getAllEntrepriseFromEtudiant($user["id_etudiant"]);
+            return Response::template(Views\Etudiants\tooLate::class, [
+                "user" => $user,
+                "title" => "Inscription fermés ({$fin_insc})",
+                "date_debut" => $debut_insc,
+                "date_fin" => $fin_insc,
+                "entreprises" => $entreprises
+            ]);
+        } else {
+            $entreprises = [];
+
+            return Response::template(Views\Etudiants\listeEntreprise::class, [
+                "user" => $user,
+                "title" => "Etudiant {$user['prenom_etudiant']} {$user['nom_etudiant']}",
+                "date_debut" => $debut_insc,
+                "date_fin" => $fin_insc,
+                "entreprises" => $entreprises
+            ], 200);
+        }
     }
 }
