@@ -24,6 +24,10 @@ main {
 }
 
 .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     padding: 0.8rem 1rem;
     font-size: 1.3rem;
     color: var(--text-color);
@@ -40,12 +44,16 @@ main {
     outline-offset: 3px;
 }
 
+.btn.iconBeforeText {
+    flex-direction: row-reverse;
+}
+
 .btn:focus {
     outline-offset: 0px;
 }
 
 .btn.main {
-    color: var(--background);
+    color: var(--text-color);
     background-color: var(--main);
     outline-color: var(--main);
 }

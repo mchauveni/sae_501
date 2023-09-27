@@ -53,7 +53,6 @@ header .dates {
     border-style: solid none;
 }
 
-
 .entreprises {
     display: flex;
     flex-wrap: wrap;
@@ -63,11 +62,11 @@ header .dates {
     padding: 5px;
 }
 
-.entreprises div {
+.entreprises>div {
     width: 300px;
     display: grid;
     place-items: center;
-    gap: 8px 0px ;
+    gap: 8px 0px;
     margin: 15px;
 }
 

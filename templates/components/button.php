@@ -5,14 +5,18 @@
 
     class button extends Component {
         public function render ()
-        {
+        { 
             ?>
-                <div class="btn <?php echo $this->color ?>">
-                    <span><?php echo $this->content ?></span>
+                <a href="" class="btn <?php echo $this->color ?? "main" ?> <?php echo $this->iconBeforeText ? " iconBeforeText" : "" ?>">
+                    <span><?php echo $this->content ?? Undefined ?></span>
                     <div class="icon">
-                        <?php echo file_get_contents(realpath(ROOT . "/public/resources/assets/icons/" . $this->icon . ".svg")) ?>
+                        <?php 
+                            $path = ROOT . "/public/resources/assets/icons/" . $this->icon . ".svg";
+                            $default = realpath(ROOT . "/public/resources/assets/icons/flaggerbasted.svg");
+                            echo file_get_contents(file_exists($path) ? realpath($path) : realpath($default));
+                         ?>
                     </div>
-                </div>
+                </a>
             <?php
         }
     }
