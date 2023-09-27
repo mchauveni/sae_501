@@ -52,38 +52,3 @@ header .dates {
     border: 3px var(--main);
     border-style: solid none;
 }
-
-
-.entreprises {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 75vw;
-    overflow-y: auto;
-    padding: 5px;
-}
-
-.entreprises div {
-    width: 300px;
-    display: grid;
-    place-items: center;
-    gap: 8px 0px ;
-    margin: 15px;
-}
-
-.entreprises div h2 {
-    font-size: 2rem;
-    place-self: start;
-}
-
-.entreprises div p {
-    font-size: 1rem;
-    place-self: start;
-}
-
-.entreprises div a {
-    width: 100%;
-    font-size: 0.9rem;
-    text-align: center;
-    margin: 5px;
-}

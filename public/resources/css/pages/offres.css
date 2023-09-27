@@ -21,6 +21,7 @@ header section {
 header h1 {
     font-size: 1.5rem;
     margin: 3px;
+    text-align: center;
 }
 
 header section p {
@@ -28,12 +29,9 @@ header section p {
     font-size: 1rem;
 }
 
-header section h1 {
-    text-align: center;
-}
-
 header .return {
     font-size: 1.2rem;
+    margin: 0.2rem;
 }
 
 header .entreprise {
@@ -92,7 +90,7 @@ footer {
     border: 3px var(--secondary);
     border-style: solid none none none;
     background-color: var(--background);
-    width: 100%;
+    width: 75%;
     display: grid;
     place-items: center;
     height: 12vh;
