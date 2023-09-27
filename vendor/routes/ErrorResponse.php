@@ -14,6 +14,8 @@
             $request = Request::getInstance();
             $options = Request::getOptionsHeaders();
             $error = Response::getStatus($status);
+
+            $request->method = $options["method"] ?? "";
             
             // ? JSON Error if content-type is JSON
             if($request->accept === "application/json" || (isset($options["content-type"])

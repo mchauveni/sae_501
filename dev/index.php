@@ -33,6 +33,7 @@
                                         <div class="flex_container column">
                                             <input required type="date" id="dateInscStart" name="dateStart" value="<?php echo $this->user["date_deb_insc"] ?>" hidden>
                                             <input required type="date" id="dateInscEnd" name="dateEnd" value="<?php echo $this->user["date_fin_insc"] ?>" hidden>
+                                            <?php $this->component(Components\Calendar::class) ?>
                                         </div>
                                         <span class="params_subtitle">Nombre max. d'entretiens</span>
                                         <div class="flex_container">

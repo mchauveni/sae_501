@@ -1,5 +1,5 @@
 <?php
-    namespace Service\Interface;
+    namespace Service\Interfaces;
 
     use Service\Routes\Request;
 
@@ -11,10 +11,7 @@
             }
         }
 
-        /**
-         * 
-         */
-        protected function request () : Request {
+        protected function getRequest () : Request {
             return Request::getInstance();
         }
     }

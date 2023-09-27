@@ -1,7 +1,7 @@
 <?php
     namespace Components;
 
-    use Service\Interface\Component;
+    use Service\Interfaces\Component;
 
     class Head extends Component {
         public function render ()

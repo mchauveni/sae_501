@@ -1,10 +1,10 @@
 <?php
     namespace Templates\Views;
 
-    use Service\Interface\Template;
+    use Service\Interfaces\Template;
     use Components;
 
-    class Index extends Template {
+    class offres extends Template {
         public function render ()
         {
             ?>
@@ -15,7 +15,7 @@
                 </head>
                 <body>
                     <main>
-                        Hello World !
+                        Hello offres template !
                     </main>
                 </body>
                 </html>

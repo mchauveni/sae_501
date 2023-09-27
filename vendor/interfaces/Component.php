@@ -1,5 +1,5 @@
 <?php
-    namespace Service\Interface;
+    namespace Service\Interfaces;
 
     class Component {
         protected array $variables;

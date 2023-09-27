@@ -18,8 +18,13 @@
     
     use Service\Manager\Services;
     use Service\Manager\Resources;
+    use Service\Manager\Sessions;
+    use Service\Database\PDO;
     
     new Services();
+    new Sessions();
+    new PDO();
+
     new Request();
     new Resources();
 

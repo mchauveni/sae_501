@@ -1,0 +1,99 @@
+body main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 100vh;
+}
+
+header {
+    background-color: var(--background);
+    display: grid;
+    place-items: center;
+    width: 100%;
+    z-index: 999;
+}
+
+header section {
+    width: 100%;
+    padding: 8px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 3px;
+}
+
+header p {
+    font-size: 1rem;
+}
+
+header section p {
+    text-align: center;
+}
+
+header section h1 {
+    text-align: center;
+}
+
+header .disconnect {
+    place-self: end;
+    width: fit-content;
+    height: fit-content;
+}
+
+header .disconnect a {
+    width: fit-content;
+    height: fit-content;
+}
+
+header .disconnect div {
+    background-image: url("/public/assets/icons/disconnect.svg");
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+}
+
+header .user {
+
+}
+
+header .dates {
+    width: 75%;
+    border: 3px var(--secondary);
+    border-style: solid none;
+}
+
+
+.entreprises {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75vw;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.entreprises div {
+    width: 300px;
+    display: grid;
+    place-items: center;
+    gap: 8px 0px ;
+    margin: 15px;
+}
+
+.entreprises div h2 {
+    font-size: 2rem;
+    place-self: start;
+}
+
+.entreprises div p {
+    font-size: 1rem;
+    place-self: start;
+}
+
+.entreprises div a {
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 5px;
+}

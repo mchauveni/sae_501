@@ -1,14 +1,15 @@
 <?php
-    use App\Controllers;
 
-    Controllers\Index::bind("api", "/api", [
-        "content-type" => "application/json"
-    ]);
+use App\Controllers;
 
-    Controllers\Index::bind("index", "/");
-    
-    // Controllers\Index::bind()->match("/api/(.*)", [
-    //     "method" => "GET",
-    //     "content-type" => "application/json"
-    // ]);
-?>
+Controllers\LoginController::bind("login", "/login", [
+    "method" => "GET, POST",
+]);
+
+Controllers\Index::bind("index", "/");
+
+Controllers\OffreController::bind("offres", "/offres");
+
+Controllers\LoginController::bind("logout", "/logout", [
+    "method" => "GET"
+]);
