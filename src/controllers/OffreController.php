@@ -3,11 +3,10 @@
 
     use Service\Routes\Response;
     use Service\Interfaces\Controller;
-use Service\Routes\Request;
+    use Templates\Views;
 
     class OffreController extends Controller {
         public function offres () : Response {
-            Request::getInstance()->get["formation"];
-            return new Response("Hello, OffreController controller !", 200);
+            return Response::template(Views\Etudiants\offres::class);
         }
     }

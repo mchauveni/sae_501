@@ -101,7 +101,7 @@
 }
 
 .calendar_cell.past.start {
-    opacity: .7;
+    opacity: 1;
     cursor: pointer;
     pointer-events: all;
 }
