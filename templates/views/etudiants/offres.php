@@ -14,8 +14,8 @@ class offres extends Template
         <html lang="fr">
 
         <head>
-            <link rel="stylesheet" href="public/css/pages/offres.css">
-            <link rel="stylesheet" href="public/css/base-ui.css">
+            <link rel="stylesheet" href="/public/css/pages/offres.css">
+            <link rel="stylesheet" href="/public/css/base-ui.css">
             <?php $this->component(Components\Head::class) ?>
         </head>
 
@@ -27,46 +27,23 @@ class offres extends Template
                             < Retour </a>
                     </section>
                     <section class="entreprise">
-                        <h1>Schneider</h1>
-                        <p>Charente, Angoulême</p>
+                        <h1><?php echo $this->entreprise["nom_entreprise"] ?></h1>
+                        <p><?php echo "{$this->entreprise['dpt_entreprise']}, {$this->entreprise['ville_entreprise']}" ?></p>
                     </section>
                 </header>
-
-
-
                 <section class="offres">
-                    <div>
-                        <h2>MMI3_offre1</h2>
-                        <p>commentaire de l'offre de stage de l'entreprise.</p>
-                        <a download="" class="btn">Consulter l'offre</a>
-                    </div>
-                    <div>
-                        <h2>MMI3_offre2</h2>
-                        <p>commentaire de l'offre de stage de l'entreprise.</p>
-                        <a download="" class="btn">Consulter l'offre</a>
-                    </div>
-                    <div>
-                        <h2>MMI3_offre3</h2>
-                        <p>commentaire de l'offre de stage de l'entreprise.</p>
-                        <a download="" class="btn">Consulter l'offre</a>
-                    </div>
-                    <div>
-                        <h2>MMI3_offre4</h2>
-                        <p>commentaire de l'offre de stage de l'entreprise.</p>
-                        <a download="" class="btn">Consulter l'offre</a>
-                    </div>
-                    <div>
-                        <h2>MMI3_offre5</h2>
-                        <p>commentaire de l'offre de stage de l'entreprise.</p>
-                        <a download="" class="btn">Consulter l'offre</a>
-                    </div>
-                    <div>
-                        <h2>MMI3_offre6</h2>
-                        <p>commentaire de l'offre de stage de l'entreprise.</p>
-                        <a download="" class="btn">Consulter l'offre</a>
-                    </div>
+                    <?php
+                        foreach($this->offres as $offre) {
+                            ?>
+                                <div>
+                                    <h2><?php echo $offre["ref_offre"] ?></h2>
+                                    <p><?php echo $offre["commentaires"] ?></p>
+                                    <a target="_blank" download href="/public/upload/<?php echo $offre["fichier_offre"] ?>" class="btn">Consulter l'offre PDF</a>
+                                </div>
+                            <?php
+                        }
+                    ?>
                 </section>
-
                 <footer>
                     <a href="" class="btn">S'inscrire à l'entretien</a>
                 </footer>

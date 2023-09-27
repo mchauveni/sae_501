@@ -31,7 +31,8 @@ class tooLate extends Template
                                     <?php $this->component(Components\button::class, [
                                         "content" => "Inscrit",
                                         "icon" => "event_available",
-                                        "color" => "secondary"
+                                        "color" => "secondary",
+                                        "target" => "/offres"
                                     ]); ?>
                                 </div>
                             <?php

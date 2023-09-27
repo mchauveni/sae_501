@@ -46,7 +46,8 @@ class listeEntreprise extends Template
                                     <p><?php echo "{$entreprise['dpt_entreprise']}, {$entreprise['ville_entreprise']}"; ?></p>
                                     <?php $this->component(Components\button::class, [
                                         "content" => "Voir les offres",
-                                        "icon" => "chevron"
+                                        "icon" => "chevron",
+                                        "target" => "/offres/{$entreprise['id_entreprise']}"
                                     ]); ?>
                                 </div>
                             <?php
