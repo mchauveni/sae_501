@@ -1,0 +1,43 @@
+main {
+    padding: 0 2rem;
+}
+
+main .container {
+    margin-top: 4rem;
+}
+
+.params_title {
+    font-size: 1.6rem;
+    display: block;
+}
+
+.params_subtitle {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    display: block;
+}
+
+.flex_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.flex_container.space {
+    justify-content: space-between;
+    gap: 1rem;
+}
+.flex_container.column {
+    flex-direction: column;
+}
+
+form {
+    padding: 1rem 0;
+}
+
+form .input_container input {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+}
