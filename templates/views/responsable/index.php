@@ -24,11 +24,12 @@
                             </div>
                             <div class="container_body">
                                 <div class="general_container">
+                                    <a class="btn" href="/liste-etudiant">Liste des étudiants</a>
                                     <a class="btn cancel" href="/logout">Se déconnecter</a>
                                 </div>
                                 <div class="params_container">
                                     <h2 class="params_title">Paramètres d'inscription</h2>
-                                    <form action="/save-params" method="POST">
+                                    <form action="/" method="POST">
                                         <div class="form_container">
                                                 <span class="params_subtitle">Période d'inscription</span>
                                                 <div class="input_container">
@@ -40,6 +41,7 @@
                                                     <input required type="number" min="0" id="nbMaxEntretiens" name="nbMaxEntretiens" value="<?php echo $this->user["nb_max_entretiens"] ?>">
                                                 </div>
                                             </div>
+                                            <input hidden type="hidden" name="formationId" value="<?php echo $this->user["id_formation"] ?>">
                                             <div class="flex_container space">
                                                 <button class="btn validate" type="submit">Valider</button>
                                                 <button class="btn cancel" type="reset">Restaurer</button>

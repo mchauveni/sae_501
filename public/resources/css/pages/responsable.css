@@ -6,9 +6,13 @@ main .container {
     margin-top: 4rem;
 }
 
-.general-container {
+.general_container {
     width: 100%;
     margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .params_title {
@@ -17,7 +21,7 @@ main .container {
 }
 
 .params_subtitle {
-    margin-top: 2rem;
+    margin: 1rem 0;
     font-size: 1.3rem;
     display: block;
 }
