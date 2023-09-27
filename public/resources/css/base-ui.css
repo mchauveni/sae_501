@@ -20,14 +20,15 @@ main {
 }
 
 .btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 1.4rem;
-    color: var(--shade-500);
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    color: var(--text-color);
+    background-color: var(--shade-100);
     border-radius: 3px;
     cursor: pointer;
     width: 100%;
     text-align: center;
-    outline: 3px solid var(--shade-500);
+    outline: 3px solid var(--shade-100);
     transition: .15s ease-out;
 }
 
@@ -40,11 +41,13 @@ main {
 }
 
 .btn.validate {
-    background-color: var(--shade-100);
-    outline-color: var(--shade-100);
+    color: var(--shade-500);
+    background-color: var(--secondary);
+    outline-color: var(--secondary);
 }
 
 .btn.cancel, .btn.delete {
+    color: var(--shade-500);
     background-color: var(--orange);
     outline-color: var(--orange);
 }
