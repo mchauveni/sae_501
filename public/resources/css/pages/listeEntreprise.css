@@ -10,6 +10,7 @@ header {
     padding: 10px;
     position: fixed;
     width: 100%;
+    z-index: 999;
 }
 
 header section {
@@ -49,8 +50,8 @@ header .disconnect a {
 header .disconnect div {
     background-image: url("/public/assets/icons/disconnect.svg");
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 header .user {
@@ -61,4 +62,37 @@ header .dates {
     width: 75%;
     border: 3px var(--secondary);
     border-style: solid none;
+}
+
+
+.entreprises {
+    position: absolute;
+    top: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.entreprises div {
+    width: 300px;
+    display: grid;
+    place-items: center;
+    gap: 8px 0px ;
+    margin: 10px;
+}
+
+.entreprises div h2 {
+    font-size: 2rem;
+    place-self: start;
+}
+
+.entreprises div p {
+    font-size: 1rem;
+    place-self: start;
+}
+
+.entreprises div a {
+    width: 100%;
+    text-align: center;
 }
