@@ -15,3 +15,5 @@ Controllers\OffreController::bind("offres", "/offres/(\\d+)");
 Controllers\LoginController::bind("logout", "/logout", [
     "method" => "GET"
 ]);
+
+Controllers\ListeEtudiantsController::bind("listeEtud", "/listeEtud");
