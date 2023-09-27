@@ -45,7 +45,7 @@ main div h2 span {
     background: var(--text-color);
     padding: .4rem 1.4rem;
     border-radius: 99rem;
-    max-width: 16rem;
+    max-width: 20rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;

@@ -13,7 +13,7 @@ Controllers\Index::bind("index", "/", [
 Controllers\OffreController::bind("offres", "/offres/(\\d+)");
 
 Controllers\LoginController::bind("logout", "/logout", [
-    "method" => "GET"
+    "method" => "GET", 
 ]);
 
 Controllers\ListeEtudiantsController::bind("listeEtud", "/listeEtud");

@@ -8,9 +8,9 @@
         }
 
         public static function destroy () {
-            session_unset();
+            $_SESSION = array();
             session_destroy();
-            $_SESSION = [];
+            session_unset();
         }
 
         public static function set (string $name, mixed $value) : bool {
@@ -25,6 +25,8 @@
         public static function get (string $name) : mixed {
             if(session_status() === PHP_SESSION_ACTIVE) {
                return $_SESSION[$name] ?? null;
+            } else {
+                return null;
             }
         }
     }

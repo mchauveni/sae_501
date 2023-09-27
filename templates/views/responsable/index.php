@@ -50,7 +50,8 @@ class Index extends Template
                                         <input required type="number" min="0" id="nbMaxEntretiens" name="nbMaxEntretiens" value="<?php echo $this->user["nb_max_entretiens"] ?>">
                                     </div>
                                 </div>
-                                <input hidden type="hidden" name="formationId" value="<?php echo $this->user["id_formation"] ?>">
+                                <!-- <input hidden type="hidden" name="formationId" value="<?php // echo $this->user["id_formation"] 
+                                                                                            ?>"> -->
                                 <div class="flex_container space">
                                     <button class="btn validate" type="submit">Valider</button>
                                     <button class="btn cancel" type="reset">Restaurer</button>

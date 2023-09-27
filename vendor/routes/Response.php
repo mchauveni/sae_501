@@ -67,6 +67,7 @@
 
         public static function redirect (string $url) : Response {
             header("HTTP/1.0 302 Moved Temporarily;");
+            header('Cache-Control:no-store,no-cache,must-revalidate');
             header("Location: ".$url);
             return new Response("Redirected to $url", 302);
             die("Redirected to $url");
