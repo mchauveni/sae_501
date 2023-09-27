@@ -40,13 +40,22 @@ main {
     outline-offset: 0px;
 }
 
-.btn.validate {
+.btn.main {
+    color: var(--background);
+    background-color: var(--main);
+    outline-color: var(--main);
+}
+
+.btn.validate,
+.btn.secondary {
     color: var(--shade-500);
     background-color: var(--secondary);
     outline-color: var(--secondary);
 }
 
-.btn.cancel, .btn.delete {
+.btn.cancel,
+.btn.delete,
+.btn.danger {
     color: var(--shade-500);
     background-color: var(--orange);
     outline-color: var(--orange);

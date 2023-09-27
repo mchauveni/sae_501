@@ -1,5 +1,6 @@
 :root {
     --background: #D5F2E3;
+    --main: #73BA9B;
     --secondary: #003E1F;
     --text-color: #01110A;
     --light: #f4f4f4;
@@ -29,7 +30,8 @@
     color: var(--light);
 }
 
-html, body {
+html,
+body {
     margin: 0;
     font-size: 16px;
     line-height: 1;
@@ -39,9 +41,12 @@ html, body {
     background-color: var(--background);
 }
 
-h1, h2, 
-h3, h4, 
-h5, .h {
+h1,
+h2,
+h3,
+h4,
+h5,
+.h {
     font-family: 'Documan', Documan, Impact, sans-serif;
     font-weight: bold;
 }
