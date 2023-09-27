@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 02:28 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.2.0
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 27 sep. 2023 à 18:12
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sae_501`
+-- Base de données : `sae_501`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entreprise`
+-- Structure de la table `entreprise`
 --
 
 CREATE TABLE `entreprise` (
@@ -32,10 +32,10 @@ CREATE TABLE `entreprise` (
   `nom_entreprise` varchar(100) NOT NULL,
   `dpt_entreprise` varchar(100) NOT NULL,
   `ville_entreprise` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `entreprise`
+-- Déchargement des données de la table `entreprise`
 --
 
 INSERT INTO `entreprise` (`id_entreprise`, `nom_entreprise`, `dpt_entreprise`, `ville_entreprise`) VALUES
@@ -46,17 +46,17 @@ INSERT INTO `entreprise` (`id_entreprise`, `nom_entreprise`, `dpt_entreprise`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entretien`
+-- Structure de la table `entretien`
 --
 
 CREATE TABLE `entretien` (
   `id_entretien` int(11) NOT NULL,
   `id_etudiant` int(11) NOT NULL,
   `id_entreprise` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `entretien`
+-- Déchargement des données de la table `entretien`
 --
 
 INSERT INTO `entretien` (`id_entretien`, `id_etudiant`, `id_entreprise`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `entretien` (`id_entretien`, `id_etudiant`, `id_entreprise`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etudiant`
+-- Structure de la table `etudiant`
 --
 
 CREATE TABLE `etudiant` (
@@ -79,10 +79,10 @@ CREATE TABLE `etudiant` (
   `tel_etudiant` varchar(50) NOT NULL,
   `email_etudiant` varchar(100) NOT NULL,
   `mp_etudiant` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `etudiant`
+-- Déchargement des données de la table `etudiant`
 --
 
 INSERT INTO `etudiant` (`id_etudiant`, `id_formation`, `nom_etudiant`, `prenom_etudiant`, `tel_etudiant`, `email_etudiant`, `mp_etudiant`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `etudiant` (`id_etudiant`, `id_formation`, `nom_etudiant`, `prenom_e
 -- --------------------------------------------------------
 
 --
--- Table structure for table `formation`
+-- Structure de la table `formation`
 --
 
 CREATE TABLE `formation` (
@@ -110,21 +110,21 @@ CREATE TABLE `formation` (
   `date_deb_insc` date NOT NULL,
   `date_fin_insc` date NOT NULL,
   `nb_max_entretiens` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `formation`
+-- Déchargement des données de la table `formation`
 --
 
 INSERT INTO `formation` (`id_formation`, `nom_BUT`, `annee_BUT`, `nom_resp_stage`, `prenom_resp_stage`, `email_resp_stage`, `mp_resp_stage`, `date_deb_insc`, `date_fin_insc`, `nb_max_entretiens`) VALUES
-(2, 'MMI', 2, 'Bachir', 'Smail', 'sbachir@univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2023-09-30', '2023-10-05', 3),
+(2, 'MMI', 2, 'Bachir', 'Smail', 'sbachir@univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2023-09-14', '2023-10-05', 3),
 (3, 'MMI', 2, 'Chaulet', 'Bernadette', 'bchaulet@univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2023-09-21', '2023-10-20', 4),
 (4, 'MMI', 1, 'Badulescu', 'Cristina', 'cbadulescu@univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2023-09-14', '2023-10-04', 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `offre`
+-- Structure de la table `offre`
 --
 
 CREATE TABLE `offre` (
@@ -134,30 +134,32 @@ CREATE TABLE `offre` (
   `fichier_offre` varchar(50) NOT NULL,
   `ref_offre` varchar(50) NOT NULL,
   `commentaires` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `offre`
+-- Déchargement des données de la table `offre`
 --
 
 INSERT INTO `offre` (`id_offre`, `id_entreprise`, `id_formation`, `fichier_offre`, `ref_offre`, `commentaires`) VALUES
 (4, 4, 2, 'euhouieuhlefichierdel\'offre.pdf', 'MMI3_siteCarrouf', 'euh oui le site carrouf là il est pas ouf en vrai quoi(coubeh)'),
 (5, 2, 3, 'lefichierdel\'offrelàààà.pdf', 'MMI2_créaNumPhotosSite', 'Photoshoot cosplay mdr (furry)'),
 (6, 3, 4, 'maislefichierlààààààà.pdf', 'MMI1_updateWordpress', 'le wordpress il est nul là ptn wordpress de con j\'cromprend rien mdr aled stp'),
-(7, 2, 2, 'fichierdeconilestoulà.pdf', 'MMI3_tournageIRL', 'faut tourner la vidéo sexe là xxx attention c cho!!!!!');
+(7, 2, 2, 'brochure.pdf', 'MMI3_éééétournageIRL', 'faut tourner la vidéo sexe là xxx attention c cho!!!!!'),
+(9, 4, 2, 'brochure.pdf', 'mmi3_créaNum', '?????'),
+(10, 4, 2, 'brochure.pdf', 'mmi3_créaNum', 'mddr');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `entreprise`
+-- Index pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
   ADD PRIMARY KEY (`id_entreprise`);
 
 --
--- Indexes for table `entretien`
+-- Index pour la table `entretien`
 --
 ALTER TABLE `entretien`
   ADD PRIMARY KEY (`id_entretien`),
@@ -165,20 +167,20 @@ ALTER TABLE `entretien`
   ADD KEY `FK_id_entreprise_entretien` (`id_entreprise`);
 
 --
--- Indexes for table `etudiant`
+-- Index pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD PRIMARY KEY (`id_etudiant`),
   ADD KEY `FK_id_formation_etud` (`id_formation`);
 
 --
--- Indexes for table `formation`
+-- Index pour la table `formation`
 --
 ALTER TABLE `formation`
   ADD PRIMARY KEY (`id_formation`);
 
 --
--- Indexes for table `offre`
+-- Index pour la table `offre`
 --
 ALTER TABLE `offre`
   ADD PRIMARY KEY (`id_offre`),
@@ -186,58 +188,58 @@ ALTER TABLE `offre`
   ADD KEY `FK_id_formation` (`id_formation`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `entreprise`
+-- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
   MODIFY `id_entreprise` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `entretien`
+-- AUTO_INCREMENT pour la table `entretien`
 --
 ALTER TABLE `entretien`
   MODIFY `id_entretien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `etudiant`
+-- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   MODIFY `id_etudiant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `formation`
+-- AUTO_INCREMENT pour la table `formation`
 --
 ALTER TABLE `formation`
   MODIFY `id_formation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `offre`
+-- AUTO_INCREMENT pour la table `offre`
 --
 ALTER TABLE `offre`
-  MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `entretien`
+-- Contraintes pour la table `entretien`
 --
 ALTER TABLE `entretien`
   ADD CONSTRAINT `FK_id_entreprise_entretien` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_id_etudiant_entretien` FOREIGN KEY (`id_etudiant`) REFERENCES `etudiant` (`id_etudiant`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `etudiant`
+-- Contraintes pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD CONSTRAINT `FK_id_formation_etud` FOREIGN KEY (`id_formation`) REFERENCES `formation` (`id_formation`);
 
 --
--- Constraints for table `offre`
+-- Contraintes pour la table `offre`
 --
 ALTER TABLE `offre`
   ADD CONSTRAINT `FK_id_entreprise` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id_entreprise`) ON DELETE CASCADE ON UPDATE CASCADE,
