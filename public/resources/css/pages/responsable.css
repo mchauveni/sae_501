@@ -6,6 +6,11 @@ main .container {
     margin-top: 4rem;
 }
 
+.general-container {
+    width: 100%;
+    margin: 2rem 0;
+}
+
 .params_title {
     font-size: 1.6rem;
     display: block;
@@ -31,4 +36,13 @@ main .container {
 }
 .flex_container.column {
     flex-direction: column;
+}
+
+form {
+    padding: 1rem 0;
+}
+
+form .input_container input {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
 }

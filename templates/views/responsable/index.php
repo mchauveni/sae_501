@@ -24,25 +24,26 @@
                             </div>
                             <div class="container_body">
                                 <div class="general_container">
-                                    <!-- IMPR PDF -->
-                                    <!-- DECONEXION -->
+                                    <a class="btn cancel" href="/logout">Se déconnecter</a>
                                 </div>
                                 <div class="params_container">
-                                    <span class="params_title"><b>Paramètres d'inscription</b></span>
-                                    <form action="/save" method="POST">
-                                        <span class="params_subtitle">Période d'inscription</span>
-                                        <div class="flex_container column">
-                                            <input required type="date" id="dateInscStart" name="dateStart" value="<?php echo $this->user["date_deb_insc"] ?>" hidden>
-                                            <input required type="date" id="dateInscEnd" name="dateEnd" value="<?php echo $this->user["date_fin_insc"] ?>" hidden>
-                                            <?php $this->component(Components\Calendar::class) ?>
-                                        </div>
-                                        <span class="params_subtitle">Nombre max. d'entretiens</span>
-                                        <div class="flex_container">
-                                            <input type="number">
-                                        </div>
-                                        <div class="flex_container space">
-                                            <button class="btn validate" type="submit">Valider</button>
-                                            <button class="btn cancel" type="reset">Restaurer</button>
+                                    <h2 class="params_title">Paramètres d'inscription</h2>
+                                    <form action="/save-params" method="POST">
+                                        <div class="form_container">
+                                                <span class="params_subtitle">Période d'inscription</span>
+                                                <div class="input_container">
+                                                    <input required type="date" id="dateInscStart" name="dateStart" value="<?php echo $this->user["date_deb_insc"] ?>">
+                                                    <input required type="date" id="dateInscEnd" name="dateEnd" value="<?php echo $this->user["date_fin_insc"] ?>">
+                                                </div>
+                                                <span class="params_subtitle">Nombre max. d'entretiens</span>
+                                                <div class="input_container number">
+                                                    <input required type="number" min="0" id="nbMaxEntretiens" name="nbMaxEntretiens" value="<?php echo $this->user["nb_max_entretiens"] ?>">
+                                                </div>
+                                            </div>
+                                            <div class="flex_container space">
+                                                <button class="btn validate" type="submit">Valider</button>
+                                                <button class="btn cancel" type="reset">Restaurer</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

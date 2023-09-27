@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use Service\Routes\Response;
 use Service\Interfaces\Controller;
-
 use Templates\Views;
 
 class OffreController extends Controller

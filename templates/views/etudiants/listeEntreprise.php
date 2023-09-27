@@ -23,7 +23,7 @@ class listeEntreprise extends Template
             <main>
                 <header>
                     <section class="disconnect">
-                        <a href="">
+                        <a href="/logout">
                             <div></div>
                         </a>
                     </section>

@@ -28,6 +28,7 @@ class Index extends Controller
             "title" => "Responsable Stage {$user['nom_BUT']} {$user['annee_BUT']}"
         ], 200);
     }
+    
     private function etudiant(array $user): Response
     {
         return Response::template(Views\Etudiants\listeEntreprise::class, [

@@ -7,7 +7,6 @@
     use Service\Database\Entities\Auth;
     use Service\Manager\Sessions;
     use Service\Plugins\HashPassword;
-
     use Templates;
 
     class LoginController extends Controller {
@@ -21,6 +20,13 @@
             }
 
             return Response::redirect("/");
+        }
+
+        public function logout () : Response {
+            Sessions::set("email", null);
+            Sessions::set("password", null);
+            Sessions::destroy();
+            return Response::redirect("/login");
         }
 
         public function auth () : ?array {
