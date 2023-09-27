@@ -32,8 +32,6 @@ class OffreController extends Controller
             "id_etudiant" => $user["id_etudiant"]
         ]));
 
-        die(var_dump($isSubscribed));
-        
         return Response::template(Views\Etudiants\offres::class, [
             "offres" => $offres,
             "entreprise" => $entreprise,

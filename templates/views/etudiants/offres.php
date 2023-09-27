@@ -50,7 +50,25 @@ class offres extends Template
                     ?>
                 </section>
                 <footer>
-                    <a href="" class="btn">S'inscrire à l'entretien</a>
+                        <?php
+                            if(!$this->isSubscribed && !$this->isTooLate) {
+                                $this->component(Components\Button::class, [
+                                    "content" => "Je postule",
+                                    "color" => "secondary",
+                                    "icon" => "postuler",
+                                    "iconBeforeText" => true,
+                                    "target" => ""
+                                ]);
+                            } else if ($this->isSubscribed && !$this->isTooLate) {
+                                $this->component(Components\Button::class, [
+                                    "content" => "J'abandonne",
+                                    "color" => "danger",
+                                    "icon" => "delete",
+                                    "iconBeforeText" => true,
+                                    "target" => ""
+                                ]);
+                            }
+                        ?>
                 </footer>
             </main>
         </body>
