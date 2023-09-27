@@ -38,36 +38,20 @@ class listeEntreprise extends Template
                 </header>
 
                 <section class="entreprises">
-                    <div>
-                        <h2><?php echo $this->nom_entreprise ?></h2>
-                        <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
-                    </div>
-                    <div>
-                        <h2><?php echo $this->nom_entreprise ?></h2>
-                        <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
-                    </div>
-                    <div>
-                        <h2><?php echo $this->nom_entreprise ?></h2>
-                        <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
-                    </div>
-                    <div>
-                        <h2><?php echo $this->nom_entreprise ?></h2>
-                        <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
-                    </div>
-                    <div>
-                        <h2><?php echo $this->nom_entreprise ?></h2>
-                        <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
-                    </div>
-                    <div>
-                        <h2><?php echo $this->nom_entreprise ?></h2>
-                        <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="" class="btn">Voir les offres > </a>
-                    </div>
+                    <?php
+                        foreach($this->entreprises as $entreprise) {
+                            ?>
+                                <div>
+                                    <h2><?php echo $entreprise['nom_entreprise']; ?></h2>
+                                    <p><?php echo "{$entreprise['dpt_entreprise']}, {$entreprise['ville_entreprise']}"; ?></p>
+                                    <?php $this->component(Components\button::class, [
+                                        "content" => "Voir les offres",
+                                        "icon" => "chevron"
+                                    ]); ?>
+                                </div>
+                            <?php
+                        }
+                    ?>
                 </section>
 
             </main>

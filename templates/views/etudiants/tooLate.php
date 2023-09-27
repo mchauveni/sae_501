@@ -21,7 +21,23 @@ class tooLate extends Template
 
         <body>
             <main>
-                Hello tooLate template !
+            <section class="entreprises">
+                    <?php
+                        foreach($this->entreprises as $entreprise) {
+                            ?>
+                                <div>
+                                    <h2><?php echo $entreprise['nom_entreprise']; ?></h2>
+                                    <p><?php echo "{$entreprise['dpt_entreprise']}, {$entreprise['ville_entreprise']}"; ?></p>
+                                    <?php $this->component(Components\button::class, [
+                                        "content" => "Inscrit",
+                                        "icon" => "event_available",
+                                        "color" => "secondary"
+                                    ]); ?>
+                                </div>
+                            <?php
+                        }
+                    ?>
+                </section>
             </main>
         </body>
 
