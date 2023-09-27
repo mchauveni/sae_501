@@ -58,11 +58,11 @@ header .entreprise p {
     margin-bottom: 12vh;
 }
 
-.offres div {
+.offres>div {
     width: 300px;
     display: grid;
     place-items: center;
-    gap: 8px 0px ;
+    gap: 8px 0px;
     margin: 15px;
 }
 

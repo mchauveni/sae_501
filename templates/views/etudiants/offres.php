@@ -38,7 +38,12 @@ class offres extends Template
                                 <div>
                                     <h2><?php echo $offre["ref_offre"] ?></h2>
                                     <p><?php echo $offre["commentaires"] ?></p>
-                                    <a target="_blank" download href="/public/upload/<?php echo $offre["fichier_offre"] ?>" class="btn">Consulter l'offre PDF</a>
+                                    <?php $this->component(Components\Button::class, [
+                                        "content" => "Voir l'offre",
+                                        "icon" => "open_in_new",
+                                        "target" => "/public/upload/{$offre["fichier_offre"]}",
+                                        "targetBlank" => true
+                                    ]) ?>
                                 </div>
                             <?php
                         }

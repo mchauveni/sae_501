@@ -7,7 +7,10 @@
         public function render ()
         { 
             ?>
-                <a href="<?php echo $this->target ?>" class="btn <?php echo $this->color ?? "main" ?> <?php echo $this->iconBeforeText ? " iconBeforeText" : "" ?>">
+                <a 
+                    href="<?php echo $this->target ?>" class="btn <?php echo $this->color ?? "main" ?> <?php echo $this->iconBeforeText ? "iconBeforeText" : "" ?>"
+                    target="<?php echo $this->targetBlank ? "_blank" : "_self" ?>"
+                >
                     <span><?php echo $this->content ?></span>
                     <div class="icon">
                         <?php 
