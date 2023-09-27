@@ -8,16 +8,13 @@
         }
 
         public static function destroy () {
-            if(empty($_SESSION)) {
-                session_start();
-            }
-            $_SESSION = [];
             session_unset();
             session_destroy();
+            $_SESSION = [];
         }
 
         public static function set (string $name, mixed $value) : bool {
-            if(session_status() !== PHP_SESSION_NONE && session_status() !== PHP_SESSION_DISABLED) {
+            if(session_status() === PHP_SESSION_ACTIVE) {
                 $_SESSION[$name] = $value;
                 return true;
             } else {
@@ -26,7 +23,7 @@
         }
 
         public static function get (string $name) : mixed {
-            if(session_status() !== PHP_SESSION_NONE && session_status() !== PHP_SESSION_DISABLED) {
+            if(session_status() === PHP_SESSION_ACTIVE) {
                return $_SESSION[$name] ?? null;
             }
         }
