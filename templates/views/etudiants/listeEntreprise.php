@@ -15,6 +15,7 @@ class listeEntreprise extends Template
 
         <head>
             <link rel="stylesheet" href="public/css/pages/listeEntreprise.css">
+            <link rel="stylesheet" href="public/css/base-ui.css">
             <?php $this->component(Components\Head::class) ?>
         </head>
 
@@ -40,34 +41,33 @@ class listeEntreprise extends Template
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="">Voir les offres > </a>
+                        <a href="" class="btn">Voir les offres > </a>
                     </div>
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="">Voir les offres > </a>
+                        <a href="" class="btn">Voir les offres > </a>
                     </div>
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="">Voir les offres > </a>
+                        <a href="" class="btn">Voir les offres > </a>
                     </div>
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="">Voir les offres > </a>
+                        <a href="" class="btn">Voir les offres > </a>
                     </div>
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="">Voir les offres > </a>
+                        <a href="" class="btn">Voir les offres > </a>
                     </div>
                     <div>
                         <h2><?php echo $this->nom_entreprise ?></h2>
                         <p><?php echo "{$this->dpt_entreprise}, {$this->ville_entreprise}" ?></p>
-                        <a href="">Voir les offres > </a>
+                        <a href="" class="btn">Voir les offres > </a>
                     </div>
-
                 </section>
 
             </main>
