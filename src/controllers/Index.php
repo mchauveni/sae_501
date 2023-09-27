@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Service\Database\Entities;
 use Service\Routes\Response;
 use Service\Interfaces\Controller;
 
@@ -23,6 +24,21 @@ class Index extends Controller
     }
 
     private function responsable (array $user) : Response {
+        if($user["isResp"] && $this->getRequest()->method === "POST" && !empty($this->getRequest()->post)) {
+            $id = $user["id_formation"];
+            $dateInscEnd = $this->getRequest()->post["dateEnd"];
+            $dateInscStart = $this->getRequest()->post["dateStart"];
+            $nbMaxEntretiens = $this->getRequest()->post["nbMaxEntretiens"];
+            if(isset($id)) {
+                $formation = new Entities\Formation();
+                $formation->update($id, [
+                    "date_deb_insc" => $dateInscStart,
+                    "date_fin_insc" => $dateInscEnd,
+                    "nb_max_entretiens" => $nbMaxEntretiens
+                ]);
+            }
+        }
+        
         return Response::template(Views\Responsable\Index::class, [
             "user" => $user,
             "title" => "Responsable Stage {$user['nom_BUT']} {$user['annee_BUT']}"

@@ -3,10 +3,12 @@
 use App\Controllers;
 
 Controllers\LoginController::bind("login", "/login", [
-    "method" => "GET, POST",
+    "method" => "GET, POST"
 ]);
 
-Controllers\Index::bind("index", "/");
+Controllers\Index::bind("index", "/", [
+    "method" => "GET, POST"
+]);
 
 Controllers\OffreController::bind("offres", "/offres");
 
