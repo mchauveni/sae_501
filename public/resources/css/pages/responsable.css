@@ -32,3 +32,12 @@ main .container {
 .flex_container.column {
     flex-direction: column;
 }
+
+form {
+    padding: 1rem 0;
+}
+
+form .input_container input {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+}
