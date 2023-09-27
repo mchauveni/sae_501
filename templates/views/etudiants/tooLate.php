@@ -21,22 +21,38 @@ class tooLate extends Template
 
         <body>
             <main>
-            <section class="entreprises">
+                <header>
+                    <section class="disconnect">
+                        <a href="/logout">
+                            <div></div>
+                        </a>
+                    </section>
+                    <section class="user">
+                        <p>Bonjour,</p>
+                        <h1><?php echo "{$this->user['prenom_etudiant']} {$this->user['nom_etudiant']}"; ?></h1>
+                    </section>
+                    <section class="dates">
+                        <p>Dates d'inscriptions :</p>
+                        <p><?php echo "{$this->date_debut} - {$this->date_fin}"; ?></p>
+                    </section>
+                </header>
+
+                <section class="entreprises">
                     <?php
-                        foreach($this->entreprises as $entreprise) {
-                            ?>
-                                <div>
-                                    <h2><?php echo $entreprise['nom_entreprise']; ?></h2>
-                                    <p><?php echo "{$entreprise['dpt_entreprise']}, {$entreprise['ville_entreprise']}"; ?></p>
-                                    <?php $this->component(Components\button::class, [
-                                        "content" => "Inscrit",
-                                        "icon" => "event_available",
-                                        "color" => "secondary",
-                                        "target" => "/offres"
-                                    ]); ?>
-                                </div>
-                            <?php
-                        }
+                    foreach ($this->entreprises as $entreprise) {
+                    ?>
+                        <div>
+                            <h2><?php echo $entreprise['nom_entreprise']; ?></h2>
+                            <p><?php echo "{$entreprise['dpt_entreprise']}, {$entreprise['ville_entreprise']}"; ?></p>
+                            <?php $this->component(Components\button::class, [
+                                "content" => "Inscrit",
+                                "icon" => "event_available",
+                                "color" => "secondary",
+                                "target" => "/offres/{$entreprise['id_entreprise']}"
+                            ]); ?>
+                        </div>
+                    <?php
+                    }
                     ?>
                 </section>
             </main>
