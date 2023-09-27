@@ -1,4 +1,5 @@
 :root {
+    --main: #73BA9B;
     --background: #D5F2E3;
     --main: #73BA9B;
     --secondary: #003E1F;
@@ -49,6 +50,7 @@ h5,
 .h {
     font-family: 'Documan', Documan, Impact, sans-serif;
     font-weight: bold;
+    color: var(--secondary);
 }
 
 * {
