@@ -21,12 +21,15 @@ header section {
 header h1 {
     font-size: 1.5rem;
     margin: 3px;
-    text-align: center;
 }
 
 header section p {
     text-align: center;
     font-size: 1rem;
+}
+
+header section h1 {
+    text-align: center;
 }
 
 header .disconnect {
@@ -52,6 +55,7 @@ header .dates {
     border: 3px var(--main);
     border-style: solid none;
 }
+
 
 .entreprises {
     display: flex;
