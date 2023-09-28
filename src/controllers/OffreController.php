@@ -24,6 +24,8 @@ class OffreController extends Controller
         $isTooLate = $now->getTimestamp() > date_create($formation["date_fin_insc"])->getTimestamp();
         $isTooSoon = $now->getTimestamp() < date_create($formation["date_deb_insc"])->getTimestamp();
 
+        $limitReach = false;
+
         if(!$isTooLate && !$isTooSoon && !empty($this->getRequest()->get)) {
             $req = $this->getRequest()->get;
             $entretien = new Entretien();
@@ -32,15 +34,18 @@ class OffreController extends Controller
                 if(count($entretien->findBy([
                     "id_etudiant" => $user["id_etudiant"]
                 ])) < $limit) {
-                    $entretien->create([
+                    if(empty($entretien->findBy([
                         "id_entreprise" => $id_entreprise, 
                         "id_etudiant" => $user["id_etudiant"]
-                    ]);  
-                    $limitReach = false;        
+                    ]))) {
+                        $entretien->create([
+                            "id_entreprise" => $id_entreprise, 
+                            "id_etudiant" => $user["id_etudiant"]
+                        ]);  
+                    }
                 } else {
                     $limitReach = $limit;
                 }
-
             } else if(isset($req["unsubscribe"])){
                 $del = $entretien->findBy([
                     "id_entreprise" => $id_entreprise, 
