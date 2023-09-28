@@ -3,7 +3,42 @@ main {
 }
 
 main .container {
-    margin-top: 4rem;
+    padding-top: 2rem;
+}
+
+.header {
+    padding-bottom: 1.5rem;
+    display: grid;
+    gap: 1rem;
+    border: 1px var(--main);
+    border-style: none none solid none;
+}
+
+.disconnect {
+    place-self: end;
+    width: fit-content;
+    height: fit-content;
+}
+
+.disconnect__button {
+    display: block;
+    background-image: url("/public/assets/icons/disconnect.svg");
+    background-size: cover;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.user {
+    width: fit-content;
+}
+
+.user__greeting {
+    font-size: 1.8rem;
+}
+
+.user__name {
+    font-size: 3rem;
+    text-align: center;
 }
 
 .general_container {
@@ -21,7 +56,7 @@ main .container {
 }
 
 .params_subtitle {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
     font-size: 1.3rem;
     display: block;
 }
@@ -38,6 +73,7 @@ main .container {
     justify-content: space-between;
     gap: 1rem;
 }
+
 .flex_container.column {
     flex-direction: column;
     margin-bottom: 2rem;

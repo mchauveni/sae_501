@@ -18,41 +18,40 @@ header section {
     padding: 8px;
 }
 
-header h1 {
-    font-size: 1.5rem;
-    margin: 3px;
+.user {
+    width: fit-content;
 }
 
-header section p {
+.user__greeting {
+    font-size: 1.8rem;
+}
+
+.user__name {
+    font-size: 3rem;
     text-align: center;
-    font-size: 1rem;
 }
 
-header section h1 {
-    text-align: center;
-}
-
-header .disconnect {
+.disconnect {
     place-self: end;
     width: fit-content;
     height: fit-content;
 }
 
-header .disconnect a {
-    width: fit-content;
-    height: fit-content;
-}
-
-header .disconnect div {
+.disconnect__button {
+    display: block;
     background-image: url("/public/assets/icons/disconnect.svg");
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
 }
 
-header .dates {
-    width: 75%;
-    border: 3px var(--main);
+.dates {
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 75%;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px var(--main);
     border-style: solid none;
 }
 
@@ -85,9 +84,8 @@ header .dates {
 
 .entreprises div a {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
-    margin: 5px;
 }
 
 .oops {

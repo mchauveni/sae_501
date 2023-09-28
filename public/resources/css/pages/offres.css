@@ -3,49 +3,37 @@ body main {
     flex-direction: column;
     align-items: center;
     max-height: 100vh;
+
 }
 
 header {
-    background-color: var(--background);
+    padding: 1rem;
     display: grid;
     place-items: center;
-    width: 100%;
-    z-index: 999;
-}
-
-header section {
-    width: 100%;
-    padding: 8px;
-}
-
-header h1 {
-    font-size: 1.5rem;
-    margin: 3px;
-    text-align: center;
-}
-
-header section p {
-    text-align: center;
-    font-size: 1rem;
-}
-
-header .return {
-    font-size: 1.2rem;
-    margin: 0.2rem;
-}
-
-header .entreprise {
     width: 75%;
-    border: 3px var(--secondary);
+    z-index: 999;
+    border: 1px var(--main);
     border-style: none none solid none;
 }
 
-header .entreprise h1 {
+.entreprise {
+    width: fit-content;
+    padding: 8px;
+}
+
+.entreprise__name {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.entreprise__localisation {
     font-size: 1.8rem;
 }
 
-header .entreprise p {
-    font-size: 1rem;
+.return {
+    place-self: start;
+    font-size: 1.2rem;
+    margin: 0.2rem;
 }
 
 .offre_error_max {
@@ -60,46 +48,40 @@ header .entreprise p {
     justify-content: center;
     width: 75vw;
     overflow-y: auto;
-    padding: 5px;
-    margin-bottom: 12vh;
+    padding: 1rem;
 }
 
-.offres>div {
+.offre {
     width: 300px;
     display: grid;
-    place-items: center;
-    gap: 8px 0px;
+    grid-auto-rows: auto;
+    gap: 1rem 0rem;
     margin: 15px;
 }
 
-.offres div h2 {
-    font-size: 1.2rem;
-    place-self: start;
+.offre__ref {
+    font-size: 2rem;
 }
 
-.offres div p {
-    font-size: 0.9rem;
-    place-self: start;
-    margin: 0.4rem 0;
+.offre__comment {
+    font-size: 1rem;
 }
 
-.offres div a {
+.offre a {
     width: 100%;
-    font-size: 0.9rem;
-    text-align: center;
-    margin: 5px;
+    font-size: 1rem;
 }
 
 footer {
+    padding: 1.5rem;
     position: fixed;
     bottom: 0;
-    border: 3px var(--secondary);
+    border: 1px var(--main);
     border-style: solid none none none;
     background-color: var(--background);
     width: 75%;
     display: grid;
     place-items: center;
-    height: 12vh;
 }
 
 footer a {

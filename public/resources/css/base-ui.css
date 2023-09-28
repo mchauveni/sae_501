@@ -9,20 +9,6 @@ main {
     display: none;
 }
 
-.container_head {
-    border-bottom: 3px solid var(--shade-100);
-    padding-bottom: .8rem;
-    font-size: 1.8rem;
-}
-
-.container_head h1 {
-    font-size: 3rem;
-}
-
-.container_body {
-    margin-top: 1rem;
-}
-
 .btn {
     display: flex;
     align-items: center;

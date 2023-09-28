@@ -5,10 +5,8 @@ namespace Templates\Views\Responsable;
 use Service\Interfaces\Template;
 use Components;
 
-class Index extends Template
-{
-    public function render()
-    {
+class Index extends Template {
+    public function render() {
 ?>
         <!DOCTYPE html>
         <html lang="fr">
@@ -22,9 +20,14 @@ class Index extends Template
         <body>
             <main>
                 <div class="container">
-                    <div class="container_head">
-                        <span>Bonjour,</span>
-                        <h1><?php echo "{$this->user['nom_resp_stage']} {$this->user['prenom_resp_stage']}" ?></h1>
+                    <div class="header">
+                        <section class="disconnect">
+                            <a href="/logout" class="disconnect__button"></a>
+                        </section>
+                        <div class="user">
+                            <span class="user__greeting">Bonjour,</span>
+                            <h1 class="user__name"><?php echo "{$this->user['nom_resp_stage']} {$this->user['prenom_resp_stage']}" ?></h1>
+                        </div>
                     </div>
                     <div class="container_body">
                         <div class="general_container">
@@ -32,12 +35,6 @@ class Index extends Template
                                 "content" => "Liste des étudiants",
                                 "icon" => "open_in_new",
                                 "target" => "/liste-etudiants"
-                            ]); ?>
-                            <?php $this->component(Components\button::class, [
-                                "content" => "Déconnexion",
-                                "icon" => "chevron",
-                                "color" => "danger",
-                                "target" => "/logout"
                             ]); ?>
                         </div>
                         <div class="params_container">
