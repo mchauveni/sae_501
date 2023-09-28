@@ -27,7 +27,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    min-width: max-content;
     padding: 0.8rem 1rem;
     font-size: 1.3rem;
     color: var(--text-color);
@@ -71,6 +72,12 @@ main {
     color: var(--shade-500);
     background-color: var(--orange);
     outline-color: var(--orange);
+}
+
+.btn.dark {
+    color: var(--light);
+    background-color: var(--dark);
+    outline-color: var(--dark);
 }
 
 form {

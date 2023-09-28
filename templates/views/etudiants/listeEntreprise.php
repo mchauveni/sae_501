@@ -57,9 +57,8 @@ class listeEntreprise extends Template
 
             </main>
         </body>
-
         </html>
-<?php
+    <?php
+        }
     }
-}
 ?>

@@ -40,6 +40,7 @@ main .container {
 }
 .flex_container.column {
     flex-direction: column;
+    margin-bottom: 2rem;
 }
 
 form {

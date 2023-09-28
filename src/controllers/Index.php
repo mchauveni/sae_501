@@ -82,8 +82,10 @@ class Index extends Controller
             $entretiens = new Entretien();
 
             if($now->getTimestamp() > $date_fninsc->getTimestamp()) {
+                // ? Recupere toute les entreprise où l'étudiant à un entretien
                 $entreprises = $entretiens->getAllEntrepriseFromEtudiant($user["id_etudiant"]);
             } else {
+                // ? Recupere toute les entreprise qui possedent au moins une offre dans la formation de l'etudiant
                 $entreprises = $entreprise->selectFromEtudiantFormation($user["id_formation"]);
             }
 

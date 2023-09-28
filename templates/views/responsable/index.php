@@ -28,8 +28,17 @@ class Index extends Template
                     </div>
                     <div class="container_body">
                         <div class="general_container">
-                            <a class="btn" href="/listeEtud">Liste des étudiants</a>
-                            <a class="btn cancel" href="/logout">Se déconnecter</a>
+                            <?php $this->component(Components\button::class, [
+                                "content" => "Liste des étudiants",
+                                "icon" => "open_in_new",
+                                "target" => "/listEtud"
+                            ]); ?>
+                            <?php $this->component(Components\button::class, [
+                                "content" => "Déconnexion",
+                                "icon" => "chevron",
+                                "color" => "danger",
+                                "target" => "/logout"
+                            ]); ?>
                         </div>
                         <div class="params_container">
                             <h2 class="params_title">Paramètres d'inscription</h2>
@@ -54,7 +63,7 @@ class Index extends Template
                                                                                             ?>"> -->
                                 <div class="flex_container space">
                                     <button class="btn validate" type="submit">Valider</button>
-                                    <button class="btn cancel" type="reset">Restaurer</button>
+                                    <button class="btn dark" type="reset">Restaurer</button>
                                 </div>
                         </div>
                         </form>
