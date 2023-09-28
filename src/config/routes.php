@@ -21,3 +21,4 @@ Controllers\PlaceHolder::bind("pdf", "/placeholder/pdf", [
 ]);
 
 Controllers\ListeEtudiantsController::bind("listeEtud", "/liste-etudiants");
+Controllers\ListeEtudiantsController::bind("listeEtud", "/liste-etudiants?pdf");
