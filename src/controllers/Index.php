@@ -95,8 +95,8 @@ class Index extends Controller
             return Response::template(Views\Etudiants\listeEntreprise::class, [
                 "user" => $user,
                 "title" => "Etudiant {$user['prenom_etudiant']} {$user['nom_etudiant']}",
-                "date_debut" => $debut_insc,
-                "date_fin" => $fin_insc,
+                "date_debut" => date_format(date_create($debut_insc),'d/m/Y'),
+                "date_fin" => date_format(date_create($fin_insc),'d/m/Y'),
                 "entreprises" => $entreprises,
                 "tooLate" => $tooLate
             ], 200);
