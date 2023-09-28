@@ -21,8 +21,13 @@ class offres extends Template {
             <main>
                 <header>
                     <section class="return">
-                        <a href="/">
-                            < Retour </a>
+                        <?php $this->component(Components\Button::class, [
+                            "content" => "Retour",
+                            "icon" => "chevron-reverse",
+                            "iconBeforeText" => true,
+                            "target" => "/",
+                            "color" => "dark"
+                        ]) ?>
                     </section>
                     <section class="entreprise">
                         <h1 class="entreprise__name"><?php echo $this->entreprise["nom_entreprise"] ?></h1>
