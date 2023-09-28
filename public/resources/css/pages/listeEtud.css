@@ -28,7 +28,7 @@ main {
 .list_container {
     width: 75vw;
     margin: 1rem;
-    padding: 1rem;
+    padding: 2.5rem;
     display: grid;
     place-items: center;
     grid-template-columns: 1fr;
