@@ -49,9 +49,13 @@ main {
     flex-direction: row-reverse;
 }
 
+/* 
+
+? J'ai enlevé parce que apres on voit pas sur quel bouton on est
+
 .btn:focus {
     outline-offset: 0px;
-}
+} */
 
 .btn.main {
     color: var(--text-color);

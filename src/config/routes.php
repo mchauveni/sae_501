@@ -16,4 +16,8 @@ Controllers\LoginController::bind("logout", "/logout", [
     "method" => "GET", 
 ]);
 
+Controllers\PlaceHolder::bind("pdf", "/placeholder/pdf", [
+    "method" => "GET", 
+]);
+
 Controllers\ListeEtudiantsController::bind("listeEtud", "/liste-etudiants");

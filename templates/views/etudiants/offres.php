@@ -48,7 +48,7 @@ class offres extends Template
                                     <?php $this->component(Components\Button::class, [
                                         "content" => "Voir l'offre",
                                         "icon" => "open_in_new",
-                                        "target" => "/public/upload/{$offre["fichier_offre"]}",
+                                        "target" => "/placeholder/pdf?file={$offre["fichier_offre"]}&title={$offre["ref_offre"]}&comm={$offre["commentaires"]}",
                                         "targetBlank" => true
                                     ]) ?>
                                 </div>
