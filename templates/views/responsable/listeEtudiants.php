@@ -5,16 +5,14 @@ namespace Templates\Views\Responsable;
 use Service\Interfaces\Template;
 use Components;
 
-class listeEtudiants extends Template
-{
-    public function render()
-    {
+class listeEtudiants extends Template {
+    public function render() {
 ?>
         <!DOCTYPE html>
         <html lang="fr">
 
         <head>
-        <link rel="stylesheet" href="public/css/base-ui.css">
+            <link rel="stylesheet" href="public/css/base-ui.css">
             <link rel="stylesheet" href="public/css/pages/listeEtud.css">
             <?php $this->component(Components\Head::class) ?>
         </head>
@@ -22,10 +20,14 @@ class listeEtudiants extends Template
         <body>
             <main>
                 <div class="container">
-                    <div class="container_head">
-                        <span>Bonjour,</span>
-                        <h1>Prenom Nom</h1>
-                        <p>Voici la liste des étudiants de la formation</p>
+                    <section class="return">
+                        <a href="/">
+                            < Retour </a>
+                    </section>
+                    <div class="user">
+                        <span class="user__greeting">Bonjour,</span>
+                        <h1 class="user__name">Prenom Nom</h1>
+                        <p class="user__subtitle">Voici la liste des étudiants de la formation</p>
                     </div>
                     <div class="list_container">
                         <div class="list_item">
@@ -48,11 +50,11 @@ class listeEtudiants extends Template
                         </div>
                     </div>
                     <div class="general_container">
-                    <?php $this->component(Components\button::class, [
-                                "content" => "Imprimer en PDF",
-                                "icon" => "open_in_new",
-                                "target" => "/liste-etudiants"
-                            ]); ?>
+                        <?php $this->component(Components\button::class, [
+                            "content" => "Imprimer en PDF",
+                            "icon" => "open_in_new",
+                            "target" => "/liste-etudiants"
+                        ]); ?>
                     </div>
                 </div>
             </main>
