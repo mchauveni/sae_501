@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 28 sep. 2023 à 14:30
+-- Généré le : jeu. 28 sep. 2023 à 17:08
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -152,7 +152,7 @@ CREATE TABLE `offre` (
 --
 
 INSERT INTO `offre` (`id_offre`, `id_entreprise`, `id_formation`, `fichier_offre`, `ref_offre`, `commentaires`) VALUES
-(7, 2, 2, 'brochure.pdf', 'MMI3_éééétournageIRL', 'faut tourner la vidéo sexe là xxx attention c cho!!!!!'),
+(7, 2, 2, 'brochure.pdf', 'MMI3_Solo-QDevBDD', 'Développement d\'une base de donnée relationnelle.'),
 (11, 5, 2, 'MMI3_offre_11.pdf', 'MMI3_SolicisDevWeb', 'Création d\'applications Web.'),
 (12, 5, 3, 'MMI2_offre_12.pdf', 'MMI2_SolicisDevWeb', 'Mise à jour d\'applications Web.'),
 (13, 6, 2, 'MMI3_offre_13.pdf', 'MMI3_WebperfectComm', 'Mise à jour de sites web avec des outils de communication pertinents.'),
