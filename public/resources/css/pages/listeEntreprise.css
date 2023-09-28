@@ -56,7 +56,6 @@ header .dates {
     border-style: solid none;
 }
 
-
 .entreprises {
     display: flex;
     flex-wrap: wrap;
@@ -89,4 +88,11 @@ header .dates {
     font-size: 0.9rem;
     text-align: center;
     margin: 5px;
+}
+
+.oops {
+    color: var(--orange);
+    font-size: 1.5rem;
+    max-width: 300px;
+    text-align: center;
 }

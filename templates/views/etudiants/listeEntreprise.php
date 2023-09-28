@@ -54,6 +54,10 @@ class listeEntreprise extends Template
                         }
                     ?>
                 </section>
+                
+                <section class="oops">
+                    <p><?php if($this->entreprises === []){ echo "Oops, on dirait qu'il n'y a aucune offres à afficher pour votre formation.";} ?> </p>
+                </section>
 
             </main>
         </body>
