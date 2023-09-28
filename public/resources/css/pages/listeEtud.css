@@ -11,6 +11,11 @@ main .container {
     color: var(--main);
 }
 
+.container_head a {
+    max-width: 10vw;
+    margin: 2rem;
+}
+
 .list_container {
     width: 75vw;
     margin: 2rem;
