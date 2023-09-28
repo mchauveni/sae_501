@@ -10,6 +10,8 @@ use App\Service\FPDF;
 use Service\Database\Entities\Formation;
 use Service\Routes\ErrorResponse;
 
+use Service\Database\PDO;
+
 class ListeEtudiantsController extends Controller
 {
     public function listeEtud(): Response
@@ -40,10 +42,10 @@ class ListeEtudiantsController extends Controller
         $pdf->AddPage();
 
         $pdf->SetFont('helvetica','B',16);
-        $pdf->Cell(0,10, "Liste des étudiants pour formation {$user['nom_BUT']} {$user['annee_BUT']}", 0, 0, 'center');
+        $pdf->Cell(0,10, iconv("utf-8", "latin1", "Liste des étudiants pour formation {$user['nom_BUT']} {$user['annee_BUT']}"), 0, 0, 'center');
         $pdf->SetFont('helvetica','I',14);
         $pdf->Ln(10);
-        $pdf->Cell(0,10, "Responsable de stage: {$user['nom_resp_stage']} {$user['prenom_resp_stage']}", 0, 0, 'center');
+        $pdf->Cell(0,10, iconv("utf-8", "latin1", "Responsable de stage: {$user['nom_resp_stage']} {$user['prenom_resp_stage']}"), 0, 0, 'center');
         $pdf->Ln(13);
 
         $pdf->SetFont('helvetica','',10);
@@ -53,10 +55,10 @@ class ListeEtudiantsController extends Controller
         $cellMaxSize = $pdf->GetPageWidth()/4 - ($pdf->GetX()/2) - 40;
 
         $cells[] = [
-            "Nom/prénom étudiant",
-            "Email étudiant",
-            "Tél étudiant",
-            "Nombre d'entretiens"
+            iconv("utf-8", "latin1", "Nom/prénom étudiant"),
+            iconv("utf-8", "latin1", "Email étudiant"),
+            iconv("utf-8", "latin1", "Tél étudiant"),
+            iconv("utf-8", "latin1", "Nombre d'entretiens")
         ];
 
         $cellsSize[] = [
@@ -68,10 +70,10 @@ class ListeEtudiantsController extends Controller
 
         foreach($etudiants as $etudiant) {
             $cells[] = [
-                "{$etudiant['nom_etudiant']} {$etudiant['prenom_etudiant']}",
-                $etudiant['email_etudiant'],
-                $etudiant['tel_etudiant'],
-                $etudiant['nb_entretiens']
+                iconv("utf-8", "latin1", "{$etudiant['nom_etudiant']} {$etudiant['prenom_etudiant']}"),
+                iconv("utf-8", "latin1", $etudiant['email_etudiant']),
+                iconv("utf-8", "latin1", $etudiant['tel_etudiant']),
+                iconv("utf-8", "latin1", $etudiant['nb_entretiens'])
             ];
 
             $cellsSize[] = [
@@ -92,8 +94,8 @@ class ListeEtudiantsController extends Controller
             $pdf->Ln(10);
         }
 
-        $text = "{$user['nom_resp_stage']} {$user['prenom_resp_stage']} | {$user['nom_BUT']} {$user['annee_BUT']}";
+        $text = iconv("utf-8", "latin1", "{$user['nom_resp_stage']} {$user['prenom_resp_stage']} | {$user['nom_BUT']} {$user['annee_BUT']}");
         $pdf->Text($pdf->GetPageWidth() - $pdf->GetStringWidth($text) - 12, $pdf->GetPageHeight() - 12, $text);
-        return $pdf->Output('', "Liste Etudiants - {$user['nom_BUT']} {$user['annee_BUT']} [{$time}]", true);
+        return $pdf->Output('', iconv("utf-8", "latin1", "Liste Etudiants - {$user['nom_BUT']} {$user['annee_BUT']} [{$time}]"), false);
     }
 }

@@ -5,10 +5,13 @@
     use Service\Interfaces\Controller;
 
     use App\Service\FPDF;
+    use Service\Database\PDO;
 
     class PlaceHolder extends Controller {
         public function pdf () : string {
-            $req = $this->getRequest()->get;
+            $req = array_map(function ($r) { 
+                return iconv("utf-8", "latin1", $r);
+            }, $this->getRequest()->get);
             $pdf = new FPDF();
             $pdf->AddPage();
             $pdf->AcceptPageBreak();
@@ -22,7 +25,8 @@
             null, null, -200, 0, "jpg");
             $pdf->SetFont('helvetica','',16);
             $pdf->Cell(0,10, $req["comm"] ?? "Commentaires de l'offre", 10, 0, 'center');
-            return $pdf->Output('I', $req["title"] ?? "Placeholder PDF", true);
+
+            return $pdf->Output('I', $req["title"] ?? "Placeholder PDF", false);
         }
     }
 ?>
