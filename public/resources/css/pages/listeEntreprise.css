@@ -84,7 +84,6 @@ header section {
 
 .entreprises div a {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
-    margin: 5px;
 }
