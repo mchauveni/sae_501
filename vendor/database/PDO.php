@@ -5,9 +5,12 @@
         private static \PDO $resource;
         public function __construct()
         {
-            $host = SERVICE->DB_HOST;
+            $host = SERVICE->MODE == 'DEV' ? SERVICE->DB_HOST : SERVICE->DB_PROD_HOST;
+            $user = SERVICE->MODE == 'DEV' ? SERVICE->DB_USER : SERVICE->DB_PROD_PASS;
+            $pass = SERVICE->MODE == 'DEV' ? SERVICE->DB_PASS : SERVICE->DB_PROD_PASS;
+
             $database = SERVICE->DB_NAME;
-            self::$resource = new \PDO("mysql:host=$host;dbname=$database", SERVICE->DB_USER, SERVICE->DB_PASS, 
+            self::$resource = new \PDO("mysql:host=$host;dbname=$database", $user, $pass, 
                 [
                     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
                     \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
