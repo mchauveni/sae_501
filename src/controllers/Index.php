@@ -82,8 +82,10 @@ class Index extends Controller
             $entreprise = new Entreprise();
             $entretiens = new Entretien();
 
-            if($now->getTimestamp() > $date_fninsc->getTimestamp()) {
-                // ? Recupere toute les entreprise où l'étudiant à un entretien
+            $tooLate = $now->getTimestamp() > $date_fninsc->getTimestamp();
+
+            if($tooLate) {
+                // ? LATE: Recupere toute les entreprise où l'étudiant à un entretien
                 $entreprises = $entretiens->getAllEntrepriseFromEtudiant($user["id_etudiant"]);
             } else {
                 // ? Recupere toute les entreprise qui possedent au moins une offre dans la formation de l'etudiant
@@ -95,7 +97,8 @@ class Index extends Controller
                 "title" => "Etudiant {$user['prenom_etudiant']} {$user['nom_etudiant']}",
                 "date_debut" => $debut_insc,
                 "date_fin" => $fin_insc,
-                "entreprises" => $entreprises
+                "entreprises" => $entreprises,
+                "tooLate" => $tooLate
             ], 200);
         }
     }
