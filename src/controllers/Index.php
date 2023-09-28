@@ -43,8 +43,8 @@ class Index extends Controller
                     "date_fin_insc" => $dateInscEnd,
                     "nb_max_entretiens" => $nbMaxEntretiens
                 ]);
-                return Response::redirect("/");
             }
+            return Response::redirect("/");
         }
         
         return Response::template(Views\Responsable\Index::class, [

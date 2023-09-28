@@ -62,8 +62,8 @@ class Index extends Template
                                 <!-- <input hidden type="hidden" name="formationId" value="<?php // echo $this->user["id_formation"] 
                                                                                             ?>"> -->
                                 <div class="flex_container space">
-                                    <button class="btn validate" type="submit">Valider</button>
-                                    <button class="btn dark" type="reset">Restaurer</button>
+                                    <input class="btn validate" type="submit" value="Valider"/>
+                                    <input class="btn dark" type="reset" value="Restaurer"/>
                                 </div>
                         </div>
                         </form>
