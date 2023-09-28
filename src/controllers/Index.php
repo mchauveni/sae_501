@@ -26,6 +26,7 @@ class Index extends Controller
     }
 
     private function responsable (array $user) : Response {
+        // ? SAVING RESP PARAMS
         if($user["isResp"] && $this->getRequest()->method === "POST" && !empty($this->getRequest()->post)) {
             $id = $user["id_formation"];
             $dateInscEnd = $this->getRequest()->post["dateEnd"];
@@ -42,8 +43,8 @@ class Index extends Controller
                     "date_fin_insc" => $dateInscEnd,
                     "nb_max_entretiens" => $nbMaxEntretiens
                 ]);
-                return Response::redirect("/");
             }
+            return Response::redirect("/");
         }
         
         return Response::template(Views\Responsable\Index::class, [
@@ -81,8 +82,10 @@ class Index extends Controller
             $entreprise = new Entreprise();
             $entretiens = new Entretien();
 
-            if($now->getTimestamp() > $date_fninsc->getTimestamp()) {
-                // ? Recupere toute les entreprise où l'étudiant à un entretien
+            $tooLate = $now->getTimestamp() > $date_fninsc->getTimestamp();
+
+            if($tooLate) {
+                // ? LATE: Recupere toute les entreprise où l'étudiant à un entretien
                 $entreprises = $entretiens->getAllEntrepriseFromEtudiant($user["id_etudiant"]);
             } else {
                 // ? Recupere toute les entreprise qui possedent au moins une offre dans la formation de l'etudiant
@@ -92,9 +95,10 @@ class Index extends Controller
             return Response::template(Views\Etudiants\listeEntreprise::class, [
                 "user" => $user,
                 "title" => "Etudiant {$user['prenom_etudiant']} {$user['nom_etudiant']}",
-                "date_debut" => $debut_insc,
-                "date_fin" => $fin_insc,
-                "entreprises" => $entreprises
+                "date_debut" => date_format(date_create($debut_insc),'d/m/Y'),
+                "date_fin" => date_format(date_create($fin_insc),'d/m/Y'),
+                "entreprises" => $entreprises,
+                "tooLate" => $tooLate
             ], 200);
         }
     }

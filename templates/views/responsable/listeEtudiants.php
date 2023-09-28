@@ -26,35 +26,28 @@ class listeEtudiants extends Template {
                     </section>
                     <div class="user">
                         <span class="user__greeting">Bonjour,</span>
-                        <h1 class="user__name">Prenom Nom</h1>
+                        <h1><?php echo "{$this->user['nom_resp_stage']} {$this->user['prenom_resp_stage']}" ?></h1>
                         <p class="user__subtitle">Voici la liste des étudiants de la formation</p>
                     </div>
                     <div class="list_container">
-                        <div class="list_item">
-                            <h4>Smirnov Ilya</h4>
-                            <p>ismirnov@etu.univ-poitiers.fr</p>
-                            <p>06 34 75 25 45</p>
-                            <h3>3 entretiens</h3>
-                        </div>
-                        <div class="list_item">
-                            <h4>Smirnov Ilya</h4>
-                            <p>ismirnov@etu.univ-poitiers.fr</p>
-                            <p>06 34 75 25 45</p>
-                            <h3>15 entretiens</h3>
-                        </div>
-                        <div class="list_item">
-                            <h4>Smirnov Ilya</h4>
-                            <p>ismirnov@etu.univ-poitiers.fr</p>
-                            <p>06 34 75 25 45</p>
-                            <h3>0 entretiens</h3>
-                        </div>
+                        <?php foreach($this->etudiants as $etudiant) {
+                            ?>
+                                <div class="list_item">
+                                    <h4><?php echo "{$etudiant['nom_etudiant']} {$etudiant['prenom_etudiant']}" ?></h4>
+                                    <p><?php echo $etudiant['email_etudiant'] ?></p>
+                                    <p><?php echo $etudiant['tel_etudiant'] ?></p>
+                                    <h3><?php echo $etudiant['nb_entretiens'] ?></h3>
+                                </div>
+                            <?php
+                        } ?>
                     </div>
                     <div class="general_container">
-                        <?php $this->component(Components\button::class, [
-                            "content" => "Imprimer en PDF",
-                            "icon" => "open_in_new",
-                            "target" => "/liste-etudiants"
-                        ]); ?>
+                    <?php $this->component(Components\button::class, [
+                                "content" => "Imprimer en PDF",
+                                "icon" => "open_in_new",
+                                "targetBlank" => true,
+                                "target" => "/liste-etudiants?pdf"
+                            ]); ?>
                     </div>
                 </div>
             </main>

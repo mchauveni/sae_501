@@ -34,6 +34,7 @@ class listeEntreprise extends Template {
                 </header>
 
                 <section class="entreprises">
+                    <?php if($this->tooLate) echo "<h2>Voici les entreprises auquels vous avez postulé</h2>" ?>
                     <?php
                     foreach ($this->entreprises as $entreprise) {
                     ?>
@@ -49,6 +50,10 @@ class listeEntreprise extends Template {
                     <?php
                     }
                     ?>
+                </section>
+                
+                <section class="oops">
+                    <p><?php if($this->entreprises === []){ echo "Oops, on dirait qu'il n'y a aucune offres à afficher pour votre formation.";} ?> </p>
                 </section>
 
             </main>

@@ -87,3 +87,7 @@ form .input_container input {
     padding: 1rem 1rem;
     margin-bottom: 1rem;
 }
+
+form .input_container input[type="number"] {
+    background-color: var(--shade-300);
+}

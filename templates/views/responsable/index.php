@@ -38,7 +38,7 @@ class Index extends Template {
                             ]); ?>
                         </div>
                         <div class="params_container">
-                            <h2 class="params_title">Paramètres d'inscription</h2>
+                            <h2 class="params_title">Paramètres d'inscription <?php echo "{$this->user['nom_BUT']} {$this->user['annee_BUT']}" ?></h2>
                             <form action="/" method="POST">
                                 <div class="form_container">
                                     <span class="params_subtitle">Période d'inscription</span>
@@ -52,15 +52,15 @@ class Index extends Template {
                                         <?php $this->component(Components\Calendar::class) ?>
                                     </div>
                                     <span class="params_subtitle">Nombre max. d'entretiens</span>
-                                    <div class="input_container number">
+                                    <div class="input_container">
                                         <input required type="number" min="0" id="nbMaxEntretiens" name="nbMaxEntretiens" value="<?php echo $this->user["nb_max_entretiens"] ?>">
                                     </div>
                                 </div>
                                 <!-- <input hidden type="hidden" name="formationId" value="<?php // echo $this->user["id_formation"] 
                                                                                             ?>"> -->
                                 <div class="flex_container space">
-                                    <button class="btn validate" type="submit">Valider</button>
-                                    <button class="btn dark" type="reset">Restaurer</button>
+                                    <input class="btn validate" type="submit" value="Valider"/>
+                                    <input class="btn dark" type="reset" value="Restaurer"/>
                                 </div>
                         </div>
                         </form>
