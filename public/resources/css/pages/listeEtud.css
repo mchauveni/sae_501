@@ -13,7 +13,7 @@ main .container {
 
 .container_head a {
     max-width: 10vw;
-    margin: 2rem;
+    margin: 2rem 0;
 }
 
 .list_container {

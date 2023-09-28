@@ -33,7 +33,7 @@ class listeEntreprise extends Template
                     </section>
                     <section class="dates">
                         <p>Dates d'inscriptions :</p>
-                        <p><?php echo "{$this->date_debut} -- {$this->date_fin}"; ?></p>
+                        <p><?php echo "{$this->date_debut} - {$this->date_fin}"; ?></p>
                     </section>
                 </header>
 
