@@ -5,9 +5,11 @@ main {
 .return {
     font-size: 1rem;
     margin: 0.5rem 0;
+    width: 150px;
 }
 
 .user {
+    margin-top: 2rem;
     width: fit-content;
 }
 
@@ -17,11 +19,11 @@ main {
 
 .user__name {
     font-size: 3rem;
-    text-align: center;
 }
 
 .user__subtitle {
     margin-top: 0.5rem;
+    font-size: 1.8rem;
     color: var(--main);
 }
 
