@@ -101,7 +101,7 @@ INSERT INTO `etudiant` (`id_etudiant`, `id_formation`, `nom_etudiant`, `prenom_e
 (11, 2, 'Jeannin', 'Antoine', '06 48 67 92 54', 'ajeannin@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
 (12, 3, 'Cochet', 'Miryam', '06 49 37 64 28', 'mcochet@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db'),
 (13, 2, 'Arsenault', 'Élise', '06 37 48 69 45', 'earsenault@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db');
-
+(14, 5, 'Bonneau', 'Liam', '06 57 46 19 25', 'lbonneau@etu.univ-poitiers.fr', 'ab6fd602559fab6fadd1559fab6fcbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db');
 -- --------------------------------------------------------
 
 --
