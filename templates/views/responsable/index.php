@@ -31,7 +31,7 @@ class Index extends Template
                             <?php $this->component(Components\button::class, [
                                 "content" => "Liste des étudiants",
                                 "icon" => "open_in_new",
-                                "target" => "/listEtud"
+                                "target" => "/liste-etudiants"
                             ]); ?>
                             <?php $this->component(Components\button::class, [
                                 "content" => "Déconnexion",

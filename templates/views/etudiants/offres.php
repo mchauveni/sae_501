@@ -30,6 +30,13 @@ class offres extends Template
                         <h1><?php echo $this->entreprise["nom_entreprise"] ?></h1>
                         <p><?php echo "{$this->entreprise['dpt_entreprise']}, {$this->entreprise['ville_entreprise']}" ?></p>
                     </section>
+                    <?php
+                        if($this->inscLimit !== false) {
+                            ?>
+                                <span class="offre_error_max">Vous avez déjà atteint la limite maximum d'entretiens (<?php echo $this->inscLimit ?>)</span>
+                            <?php
+                        }
+                    ?>
                 </header>
                 <section class="offres">
                     <?php
@@ -57,7 +64,7 @@ class offres extends Template
                                     "color" => "secondary",
                                     "icon" => "postuler",
                                     "iconBeforeText" => true,
-                                    "target" => ""
+                                    "target" => "/offres/{$this->entreprise['id_entreprise']}?subscribe"
                                 ]);
                             } else if ($this->isSubscribed && !$this->isTooLate) {
                                 $this->component(Components\Button::class, [
@@ -65,7 +72,7 @@ class offres extends Template
                                     "color" => "danger",
                                     "icon" => "delete",
                                     "iconBeforeText" => true,
-                                    "target" => ""
+                                    "target" => "/offres/{$this->entreprise['id_entreprise']}?unsubscribe"
                                 ]);
                             }
                         ?>

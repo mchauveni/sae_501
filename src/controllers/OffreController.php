@@ -15,12 +15,42 @@ class OffreController extends Controller
     public function offres(int $id_entreprise): Response
     {
         $user = (new LoginController())->auth();
+
         $offre = new Offre();
         $formation = (new Formation())->find($user["id_formation"]);
         $entreprise = (new Entreprise())->find($id_entreprise);
 
         $now = date_create('now');
         $isTooLate = $now->getTimestamp() > date_create($formation["date_fin_insc"])->getTimestamp();
+        $isTooSoon = $now->getTimestamp() < date_create($formation["date_deb_insc"])->getTimestamp();
+
+        if(!$isTooLate && !$isTooSoon && !empty($this->getRequest()->get)) {
+            $req = $this->getRequest()->get;
+            $entretien = new Entretien();
+            if(isset($req["subscribe"])){
+                $limit = $formation["nb_max_entretiens"];
+                if(count($entretien->findBy([
+                    "id_etudiant" => $user["id_etudiant"]
+                ])) < $limit) {
+                    $entretien->create([
+                        "id_entreprise" => $id_entreprise, 
+                        "id_etudiant" => $user["id_etudiant"]
+                    ]);  
+                    $limitReach = false;        
+                } else {
+                    $limitReach = $limit;
+                }
+
+            } else if(isset($req["unsubscribe"])){
+                $del = $entretien->findBy([
+                    "id_entreprise" => $id_entreprise, 
+                    "id_etudiant" => $user["id_etudiant"]
+                ]);
+                if(isset($del[0])) {
+                    $entretien->delete($del[0]["id_entretien"]);
+                }
+            }
+        }
 
         $offres = $offre->findBy([
             "id_entreprise" => $id_entreprise,
@@ -33,10 +63,12 @@ class OffreController extends Controller
         ]));
 
         return Response::template(Views\Etudiants\offres::class, [
+            "title" => "Offres de stage | {$entreprise['nom_entreprise']}",
             "offres" => $offres,
             "entreprise" => $entreprise,
             "isTooLate" => $isTooLate,
-            "isSubscribed" => $isSubscribed
+            "isSubscribed" => $isSubscribed,
+            "inscLimit" => $limitReach
         ]);
     }
 }

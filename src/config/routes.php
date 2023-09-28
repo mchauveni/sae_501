@@ -16,4 +16,4 @@ Controllers\LoginController::bind("logout", "/logout", [
     "method" => "GET", 
 ]);
 
-Controllers\ListeEtudiantsController::bind("listeEtud", "/listeEtud");
+Controllers\ListeEtudiantsController::bind("listeEtud", "/liste-etudiants");

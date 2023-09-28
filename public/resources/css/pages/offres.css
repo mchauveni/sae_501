@@ -48,6 +48,12 @@ header .entreprise p {
     font-size: 1rem;
 }
 
+.offre_error_max {
+    font-size: 1.4rem;
+    color: var(--orange);
+    font-weight: bold;
+}
+
 .offres {
     display: flex;
     flex-wrap: wrap;

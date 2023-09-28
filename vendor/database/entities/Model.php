@@ -71,5 +71,30 @@
     
             return false;
         }
+
+        public function create(array $datas): ?int
+        {
+            $sql = 'INSERT INTO `' . $this->tableName . '` ( ';
+            foreach (array_keys($datas) as $k) {
+                $sql .= " {$k} ,";
+            }
+            $sql = substr($sql, 0, strlen($sql) - 1) . ' ) VALUE (';
+            foreach (array_keys($datas) as $k) {
+                $sql .= " :{$k} ,";
+            }
+            $sql = substr($sql, 0, strlen($sql) - 1) . ' )';
+    
+            foreach (array_keys($datas) as $k) {
+                $attributes[':' . $k] = $datas[$k];
+            }
+
+            $sth = PDO::query($sql, $attributes);
+
+            if ($sth) {
+                return PDO::getInstance()->lastInsertId();
+            }
+    
+            return null;
+        }
     }
 ?>
