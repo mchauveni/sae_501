@@ -41,7 +41,7 @@ class Index extends Template
                             ]); ?>
                         </div>
                         <div class="params_container">
-                            <h2 class="params_title">Paramètres d'inscription</h2>
+                            <h2 class="params_title">Paramètres d'inscription <?php echo "{$this->user['nom_BUT']} {$this->user['annee_BUT']}" ?></h2>
                             <form action="/" method="POST">
                                 <div class="form_container">
                                     <span class="params_subtitle">Période d'inscription</span>
