@@ -19,43 +19,45 @@ header section {
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-size: 3rem;
     margin: 3px;
 }
 
-header section p {
-    text-align: center;
-    font-size: 1rem;
+.user {
+    width: fit-content;
 }
 
-header section h1 {
+.user__greeting {
+    font-size: 1.8rem;
+}
+
+.user__name {
     text-align: center;
 }
 
-header .disconnect {
+.disconnect {
     place-self: end;
     width: fit-content;
     height: fit-content;
 }
 
-header .disconnect a {
-    width: fit-content;
-    height: fit-content;
-}
-
-header .disconnect div {
+.disconnect__button {
+    display: block;
     background-image: url("/public/assets/icons/disconnect.svg");
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
 }
 
-header .dates {
-    width: 75%;
-    border: 3px var(--main);
+.dates {
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 75%;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px var(--main);
     border-style: solid none;
 }
-
 
 .entreprises {
     display: flex;
