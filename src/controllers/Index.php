@@ -26,6 +26,7 @@ class Index extends Controller
     }
 
     private function responsable (array $user) : Response {
+        // ? SAVING RESP PARAMS
         if($user["isResp"] && $this->getRequest()->method === "POST" && !empty($this->getRequest()->post)) {
             $id = $user["id_formation"];
             $dateInscEnd = $this->getRequest()->post["dateEnd"];

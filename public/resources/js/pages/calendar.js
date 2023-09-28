@@ -46,6 +46,7 @@ const Calendar = {
         Calendar.DOM.calendarNavR.addEventListener('click', () => Calendar.swipe(-1));
         Calendar.DOM.calendarBody.addEventListener('click', Calendar.handleSelection)
         Calendar.DOM.containerForm.addEventListener('reset', () => { 
+            Calendar.offset = new Date().getUTCMonth() - (new Date($('#dateInscStart').value)).getUTCMonth();
             Calendar.start = Calendar.defaultstart; Calendar.end = Calendar.defaultend; 
             Calendar.DOM.inputDateStart.value = Calendar.inputdefaultstart; Calendar.DOM.inputDateEnd.value = Calendar.inputdefaultend;
             Calendar.DOM.calendarBody.innerHTML = Calendar.components.body();
