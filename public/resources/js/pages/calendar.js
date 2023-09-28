@@ -14,7 +14,8 @@ const Calendar = {
             Calendar.inputdefaultstart = $('#dateInscStart').value;
             Calendar.inputdefaultend = $('#dateInscEnd').value;
 
-            Calendar.offset = Calendar.defaultOffset = new Date().getUTCMonth() - (new Date($('#dateInscStart').value)).getUTCMonth();
+            Calendar.offset = new Date().getUTCMonth() - (new Date($('#dateInscStart').value)).getUTCMonth();
+            Calendar.defaultOffset = Calendar.offset;
             Calendar.start = Calendar.defaultstart = Math.floor(new Date($('#dateInscStart').value).getTime()/1000/60/60/24);
             Calendar.end = Calendar.defaultend = Math.floor(new Date($('#dateInscEnd').value).getTime()/1000/60/60/24);
             console.log([Calendar.inputdefaultstart, Calendar.inputdefaultend, Calendar.defaultOffset]);
@@ -46,6 +47,7 @@ const Calendar = {
         Calendar.DOM.calendarNavR.addEventListener('click', () => Calendar.swipe(-1));
         Calendar.DOM.calendarBody.addEventListener('click', Calendar.handleSelection)
         Calendar.DOM.containerForm.addEventListener('reset', () => { 
+            console.log([Calendar.defaultOffset, Calendar.defaultstart, Calendar.defaultend]);
             Calendar.offset = Calendar.defaultOffset;
             Calendar.start = Calendar.defaultstart; Calendar.end = Calendar.defaultend; 
             Calendar.DOM.inputDateStart.value = Calendar.inputdefaultstart; Calendar.DOM.inputDateEnd.value = Calendar.inputdefaultend;
