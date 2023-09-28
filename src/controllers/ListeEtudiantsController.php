@@ -28,7 +28,7 @@ class ListeEtudiantsController extends Controller
                 "user" => $user
             ]);
         } else {
-            return new ErrorResponse(404);
+            return new ErrorResponse(403);
         }
     }
 

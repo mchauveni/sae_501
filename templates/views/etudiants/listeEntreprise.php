@@ -38,6 +38,7 @@ class listeEntreprise extends Template
                 </header>
 
                 <section class="entreprises">
+                    <?php if($this->tooLate) echo "<h2>Voici les entreprises auquels vous avez postulé</h2>" ?>
                     <?php
                         foreach($this->entreprises as $entreprise) {
                             ?>

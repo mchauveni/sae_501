@@ -55,7 +55,7 @@ class Index extends Template
                                         <?php $this->component(Components\Calendar::class) ?>
                                     </div>
                                     <span class="params_subtitle">Nombre max. d'entretiens</span>
-                                    <div class="input_container number">
+                                    <div class="input_container">
                                         <input required type="number" min="0" id="nbMaxEntretiens" name="nbMaxEntretiens" value="<?php echo $this->user["nb_max_entretiens"] ?>">
                                     </div>
                                 </div>
