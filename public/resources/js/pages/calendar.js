@@ -14,9 +14,10 @@ const Calendar = {
             Calendar.inputdefaultstart = $('#dateInscStart').value;
             Calendar.inputdefaultend = $('#dateInscEnd').value;
 
-            console.log([Calendar.inputdefaultstart, Calendar.inputdefaultend])
-            Calendar.start = Calendar.defaultstart = ((new Date($('#dateInscStart').value)).getTime()/1000/60/60/24 + 1).toFixed(0);
-            Calendar.end = Calendar.defaultend = ((new Date($('#dateInscEnd').value)).getTime()/1000/60/60/24 + 1).toFixed(0);
+            console.log([Calendar.inputdefaultstart, Calendar.inputdefaultend]);
+            Calendar.offset = new Date().getUTCMonth() - (new Date($('#dateInscStart').value)).getUTCMonth();
+            Calendar.start = Calendar.defaultstart = ((new Date($('#dateInscStart').value)).getTime()/1000/60/60/24).toFixed(0);
+            Calendar.end = Calendar.defaultend = ((new Date($('#dateInscEnd').value)).getTime()/1000/60/60/24).toFixed(0);
 
             Calendar.container.innerHTML = 
                 `${Calendar.components.header()}
@@ -62,7 +63,7 @@ const Calendar = {
                     Calendar.end = null;
                     Calendar.DOM.inputDateStart.value = null;
                     Calendar.DOM.inputDateEnd.value = null;
-                } else if(target.dataset.date !== Calendar.start) {
+                } else if(target.dataset.date !== Calendar.start && target.dataset.date > Calendar.start) {
                     Calendar.end = target.dataset.date;
                     Calendar.DOM.inputDateEnd.value = target.dataset.inputdate;
                 }
@@ -73,6 +74,7 @@ const Calendar = {
     components: {
         header: () => {
             let date = new Date();
+            date.setMonth(date.getMonth() - Calendar.offset);
             return `<div class="calendar_head">
                 <i class="calendar_nav l">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -97,15 +99,17 @@ const Calendar = {
                     let state = calendar.getTime() < monthTime ? "past" : calendar.getTime() == monthTime ? "today" : "futur";
                     let select_range = "";
 
-                    if((calendar.getTime()/1000/60/60/24).toFixed(0) == Calendar.start) {
+                    let timestamp = (calendar.getTime()/1000/60/60/24).toFixed(0);
+
+                    if(timestamp == Calendar.start) {
                         select_range = "start";
-                    } else if ((calendar.getTime()/1000/60/60/24).toFixed(0) == Calendar.end) {
+                    } else if (timestamp == Calendar.end) {
                         select_range = "end";
-                    } else if ((calendar.getTime()/1000/60/60/24).toFixed(0) >= Calendar.start && (calendar.getTime()/1000/60/60/24).toFixed(0) <= Calendar.end) {
+                    } else if (timestamp >= Calendar.start && timestamp <= Calendar.end) {
                         select_range = "ranged";
                     }
 
-                    days += `<i class="calendar_cell ${state} ${select_range}" data-inputdate="${calendar.getFullYear()}-${calendar.getMonth() < 9 ? `0${calendar.getMonth()+1}` : calendar.getMonth()+1}-${calendar.getUTCDate()}" data-date="${(calendar.getTime()/1000/60/60/24).toFixed(0)}">${i}</i>`;
+                    days += `<i class="calendar_cell ${state} ${select_range}" data-inputdate="${calendar.getFullYear()}-${calendar.getMonth() < 9 ? `0${calendar.getMonth()+1}` : calendar.getMonth()+1}-${calendar.getUTCDate()}" data-date="${timestamp}">${i}</i>`;
                 }
             }
             return days;

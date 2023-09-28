@@ -30,6 +30,7 @@ class Index extends Controller
             $id = $user["id_formation"];
             $dateInscEnd = $this->getRequest()->post["dateEnd"];
             $dateInscStart = $this->getRequest()->post["dateStart"];
+
             $nbMaxEntretiens = $this->getRequest()->post["nbMaxEntretiens"];
             if(isset($id) 
                 && isset($dateInscEnd)
